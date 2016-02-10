@@ -1,0 +1,34 @@
+<container>
+<!--  
+    Este modelo es para logica de negocios de un documento.
+ -->
+
+    <!--
+        El primer paquete de subargumentos contiene informacion especifica
+        para crear un documento. 
+     -->
+    <subarg>
+        <arg attribute="idDocument">TC</arg>
+        <arg attribute="consecutive" />
+        <arg attribute="date" />
+        <arg attribute="actionDocument">createDocument</arg>
+        <arg attribute="cash" />
+        <arg attribute="reloadProdServ" />
+    </subarg>
+    
+    <!--
+        La logica para el almacenamiento de documentos una vez creado el primer
+        paquete de subargumentos es la siguiente:
+        
+        Para procesar un paquete proveniente de una transaccion en el lado de
+        argumentos debe existir un argumento con una consulta sql, o un paquete
+        LNData, con us respectiva parametrizacion, si un paquete va a ser procesado
+        varias veces por diferentes sentencias o diferentes componentes de logica
+        de negocios, estos deben estar agrupados por una etiquete de subargumentos.
+    -->
+    
+    <!--  La siguiente sentencia actualiza un registro  -->
+         <arg>MTINS0038</arg>
+         <arg>MTINS0039</arg>
+         <arg>MTINS0040</arg>
+</container>

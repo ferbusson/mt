@@ -1,0 +1,1647 @@
+<FORM>
+  <preferences>
+    <size width="900" height="550" />
+    <name>Maestro de Productos</name>
+    <icon>NART</icon>
+    <iconificable />
+    <maximizable />
+    <closable />
+  </preferences>
+  <!-- Componente Oculto -->
+  <component visible="false">
+    <driver id="idmarca">common.gui.components.GenericData</driver>
+    <parameters>
+      <arg attribute="Panel">false</arg>
+      <arg attribute="keySQL">MTSEL0181</arg>
+      <arg attribute="driverEvent" id="codigo">client.gui.components.EmakuSearchField</arg>
+      <subarg>
+        <arg attribute="name">IDMARCA</arg>
+        <arg attribute="format">STRING</arg>
+        <arg attribute="size">11</arg>
+        <arg attribute="maxlength">15</arg>
+        <arg attribute="alignment">RIGHT</arg>
+        <arg attribute="enabled">false</arg>
+      </subarg>
+    </parameters>
+  </component>
+
+    <component>
+      <driver id="codigo">client.gui.components.EmakuSearchField</driver>
+      <parameters>
+        <arg attribute="keySQL">MTSEL0737</arg>
+        <arg attribute="driverEvent" id="codigo_bsi">client.gui.components.EmakuSearchField</arg>
+        <arg attribute="size">20</arg>
+        <arg attribute="maxlength">15</arg>
+        <arg attribute="nullValue">true</arg>
+        <arg attribute="font">Dialog,1,16</arg>
+        <arg attribute="exportValue">tallas</arg>
+        <arg attribute="format">TEXT</arg>
+        <arg attribute="sqlCombo">MTSEL0154</arg>
+        <arg attribute="blankArgs">false</arg>
+        <arg attribute="keyDataSearch">searchProd</arg>
+        <arg attribute="repeatData">2</arg>
+        <arg attribute="noDataBeep">true</arg>
+        <arg attribute="noDataMessage">No se encontro registros</arg>
+        <arg attribute="selectedIndex">1</arg>
+        <arg attribute="enabled">true</arg>
+        <arg attribute="clean">true</arg>
+        <arg attribute="sqlCode">MTSEL0155</arg>
+        <arg attribute="sqlCode">MTSEL0156</arg>
+        <arg attribute="sqlCode">MTSEL0157</arg>
+        <arg attribute="sqlCode">MTSEL0158</arg>
+        <arg attribute="sqlCode">MTSEL0159</arg>
+        <arg attribute="sqlCode">MTSEL0160</arg>
+        <arg attribute="sqlCode">MTSEL0162</arg>
+        <arg attribute="sqlCode">MTSEL0163</arg>
+        <arg attribute="sqlCode">MTSEL0164</arg>
+        <arg attribute="sqlCode">MTSEL0165</arg>
+        <arg attribute="sqlCode">MTSEL0169</arg>
+        <arg attribute="sqlCode">MTSEL0286</arg>
+        <arg attribute="sqlCode">MTSEL0285</arg>
+        <arg attribute="sqlCode">MTSEL0284</arg>
+        <arg attribute="sqlCode">MTSEL0281</arg>
+        <arg attribute="sqlCode">MTSEL0283</arg>
+        <arg attribute="sqlCode">MTSEL0148</arg>
+        <arg attribute="sqlCode">MTSEL0282</arg>
+        <arg attribute="sqlCode">MTSEL0292</arg>
+        <arg attribute="sqlCode">DLSEL0019</arg>
+        <arg attribute="sqlCode">MTSEL0321</arg>
+        <arg attribute="sqlCode">MTSEL0465</arg>
+        <arg attribute="sqlCode">MTSEL0466</arg>
+        <arg attribute="sqlCode">MTSEL0510</arg>
+        <arg attribute="sqlCode">MTSEL0508</arg>
+        <arg attribute="sqlCode">MTSEL0593</arg>
+        <arg attribute="sqlCode">MTSEL0594</arg>
+        <arg attribute="sqlCode">MTSEL0598</arg>
+        <arg attribute="sqlCode">MTSEL0681</arg> <!-- Consulta datos importacion -->
+      </parameters>
+    </component>
+
+  <panel locate="North" type="FlowLayout" />
+  <panel locate="West" type="FlowLayout" />
+  <panel locate="East" type="FlowLayout" />
+  <panel locate="South" type="FlowLayout" />
+  <tab locate="Center">
+    <panel name="Producto" icon="/icons/ico_cargos.png" type="BorderLayout">
+      <panel locate="West" type="FlowLayout" />
+      <panel locate="East" type="FlowLayout" />
+      <panel locate="South" type="FlowLayout" />
+      <panel locate="North" type="BorderLayout">
+        <box locate="North" length="30" />
+        <panel locate="West" type="BorderLayout">
+          <panel locate="West" type="FlowLayout" />
+          <panel locate="East" type="FlowLayout" />
+          <panel locate="Center" type="GridLayout" rows="6" cols="1">
+            <component>
+              <driver>common.gui.components.XMLLabel</driver>
+              <parameters>
+                <arg attribute="text">Código</arg>
+                <arg attribute="font">Dialog,1,16</arg>
+                <arg attribute="alignment">0</arg>
+              </parameters>
+            </component>
+            <component>
+              <driver>common.gui.components.XMLLabel</driver>
+              <parameters>
+                <arg attribute="text">Ref.</arg>
+                <arg attribute="font">Dialog,1,16</arg>
+                <arg attribute="alignment">0</arg>
+              </parameters>
+            </component>
+            <component>
+              <driver>common.gui.components.XMLLabel</driver>
+              <parameters>
+                <arg attribute="text">Descrip.</arg>
+                <arg attribute="font">Dialog,1,16</arg>
+                <arg attribute="alignment">0</arg>
+              </parameters>
+            </component>
+            <component>
+              <driver>common.gui.components.XMLLabel</driver>
+              <parameters>
+                <arg attribute="text">Marca</arg>
+                <arg attribute="font">Dialog,1,16</arg>
+                <arg attribute="alignment">0</arg>
+              </parameters>
+            </component>
+            <component>
+              <driver>common.gui.components.XMLLabel</driver>
+              <parameters>
+                <arg attribute="text">Talla</arg>
+                <arg attribute="font">Dialog,1,16</arg>
+                <arg attribute="alignment">0</arg>
+              </parameters>
+            </component>
+            <component>
+              <driver>common.gui.components.XMLLabel</driver>
+              <parameters>
+                <arg attribute="text">Estado</arg>
+                <arg attribute="font">Dialog,1,16</arg>
+                <arg attribute="alignment">0</arg>
+              </parameters>
+            </component>
+          </panel>
+          <panel locate="East" type="GridLayout" rows="6" cols="1">
+            <component>
+              <driver id="codigo_bsi">client.gui.components.EmakuSearchField</driver>
+              <parameters>
+                <arg attribute="size">20</arg>
+                <arg attribute="maxlength">15</arg>
+                <arg attribute="nullValue">true</arg>
+                <arg attribute="font">Dialog,1,16</arg>
+                <arg attribute="exportValue">tallas</arg>
+                <arg attribute="format">TEXT</arg>
+                <arg attribute="sqlCombo">MTSEL0736</arg>
+                <arg attribute="blankArgs">false</arg>
+                <arg attribute="keyDataSearch">searchProd</arg>
+                <arg attribute="repeatData">2</arg>
+                <arg attribute="noDataBeep">true</arg>
+                <arg attribute="noDataMessage">No se encontro registros</arg>
+                <arg attribute="selectedIndex">1</arg>
+                <arg attribute="enabled">true</arg>
+                <arg attribute="clean">true</arg>
+                <arg attribute="sqlCode">MTSEL0737</arg>
+              </parameters>
+            </component>
+            <component>
+              <driver id="idprodserv">common.gui.components.GenericData</driver>
+              <parameters>
+                <arg attribute="keySQL">MTSEL0162</arg>
+                <arg attribute="driverEvent" id="codigo">client.gui.components.EmakuSearchField</arg>
+                <subarg>
+                  <arg attribute="format">TEXT</arg>
+                  <arg attribute="font">Dialog,1,16</arg>
+                  <arg attribute="maxlength">50</arg>
+                  <arg attribute="enabled">false</arg>
+                  <arg attribute="size">20</arg>
+                  <arg attribute="sqlCode">MTSEL0282</arg>
+                </subarg>
+              </parameters>
+            </component>
+          <component>
+          <driver id="descripcion">common.gui.components.GenericData</driver>
+            <parameters>
+              <arg attribute="keySQL">MTSEL0148</arg>
+              <arg attribute="driverEvent" id="codigo">client.gui.components.EmakuSearchField</arg>
+              <subarg>
+                <arg attribute="format">TEXT</arg>
+                <arg attribute="maxlength">80</arg>
+                <arg attribute="font">Dialog,1,16</arg>
+                <arg attribute="enabled">false</arg>
+                <arg attribute="size">20</arg>
+              </subarg>
+            </parameters>
+          </component>
+          <component>
+            <driver id="marca">common.gui.components.GenericData</driver>
+            <parameters>
+              <arg attribute="keySQL">MTSEL0158</arg>
+              <arg attribute="driverEvent" id="codigo">client.gui.components.EmakuSearchField</arg>
+              <subarg>
+                <arg attribute="format">TEXT</arg>
+                <arg attribute="maxlength">30</arg>
+                <arg attribute="font">Dialog,1,16</arg>
+                <arg attribute="enabled">false</arg>
+                <arg attribute="size">20</arg>
+              </subarg>
+            </parameters>
+          </component>
+          <component>
+            <driver id="talla">common.gui.components.GenericData</driver>
+            <parameters>
+              <arg attribute="keySQL">MTSEL0159</arg>
+              <arg attribute="driverEvent" id="codigo">client.gui.components.EmakuSearchField</arg>
+              <subarg>
+                <arg attribute="format">TEXT</arg>
+                <arg attribute="font">Dialog,1,16</arg>
+                <arg attribute="maxlength">50</arg>
+                <arg attribute="enabled">false</arg>
+                <arg attribute="size">20</arg>
+              </subarg>
+            </parameters>
+          </component>
+          <component>
+            <driver id="estado">common.gui.components.GenericData</driver>
+            <parameters>
+              <arg attribute="keySQL">MTSEL0283</arg>
+              <arg attribute="driverEvent" id="codigo">client.gui.components.EmakuSearchField</arg>
+              <subarg>
+                <arg attribute="format">TEXT</arg>
+                <arg attribute="font">Dialog,1,16</arg>
+                <arg attribute="maxlength">50</arg>
+                <arg attribute="enabled">false</arg>
+                <arg attribute="size">20</arg>
+              </subarg>
+            </parameters>
+          </component>
+          </panel>
+        </panel>
+
+        <panel locate="East" type="BorderLayout">
+        <box locate="East" width="20" />
+          <panel locate="Center" type="GridLayout" rows="1" cols="1">
+          <component locate="Center">
+            <driver id="image">common.gui.components.XMLLabel</driver>
+            <parameters>
+              <arg attribute="driverEvent" id="codigo">client.gui.components.EmakuSearchField</arg>
+              <arg attribute="keySQL">MTSEL0292</arg>
+              <arg attribute="alignment">0</arg>
+              <arg attribute="queryImage">true</arg>
+              <arg attribute="widthImage">280</arg>
+              <arg attribute="heightImage">200</arg>
+            </parameters>
+          </component>
+
+          </panel>
+        </panel>
+      </panel>
+      <!--<panel locate="Center" type="BorderLayout">
+        <box locate="North" length="9" />
+        <panel locate="West" type="GridLayout" rows="1" cols="1">
+
+
+
+        </panel>
+        <box locate="South" length="9" />
+      </panel>-->
+      <panel locate="South" type="BorderLayout">
+        <panel locate="West" type="FlowLayout" />
+        <panel locate="East" type="FlowLayout" />
+        <panel locate="Center" type="GridLayout" rows="1" cols="2">
+          <panel type="BorderLayout">
+            <panel locate="Center" type="GridLayout" rows="6" cols="1">
+
+              <component>
+                <driver>common.gui.components.XMLLabel</driver>
+                <parameters>
+                  <arg attribute="text">Color</arg>
+                  <arg attribute="font">Dialog,1,16</arg>
+                  <arg attribute="alignment">0</arg>
+                </parameters>
+              </component>
+              <component>
+                <driver>common.gui.components.XMLLabel</driver>
+                <parameters>
+                  <arg attribute="text">Seccion</arg>
+                  <arg attribute="font">Dialog,1,16</arg>
+                  <arg attribute="alignment">0</arg>
+                </parameters>
+              </component>
+              <component>
+                <driver>common.gui.components.XMLLabel</driver>
+                <parameters>
+                  <arg attribute="text">Grupo</arg>
+                  <arg attribute="alignment">0</arg>
+                  <arg attribute="font">Dialog,1,16</arg>
+                </parameters>
+              </component>
+              <component>
+                <driver>common.gui.components.XMLLabel</driver>
+                <parameters>
+                  <arg attribute="text">S. Grupo</arg>
+                  <arg attribute="font">Dialog,1,16</arg>
+                  <arg attribute="alignment">0</arg>
+                </parameters>
+              </component>
+            <component>
+              <driver>common.gui.components.XMLLabel</driver>
+              <parameters>
+                <arg attribute="text">Saldo M.T.</arg>
+                <arg attribute="font">Dialog,1,16</arg>
+                <arg attribute="alignment">0</arg>
+              </parameters>
+            </component>
+            <component>
+              <driver>common.gui.components.XMLLabel</driver>
+              <parameters>
+                <arg attribute="text">Saldo MTO</arg>
+                <arg attribute="font">Dialog,1,16</arg>
+                <arg attribute="alignment">0</arg>
+              </parameters>
+            </component>
+            </panel>
+            <panel locate="East" type="GridLayout" rows="6" cols="1">
+
+
+              <component>
+                <driver id="color">common.gui.components.GenericData</driver>
+                <parameters>
+                  <arg attribute="keySQL">MTSEL0160</arg>
+                  <arg attribute="driverEvent" id="codigo">client.gui.components.EmakuSearchField</arg>
+                  <subarg>
+                    <arg attribute="format">TEXT</arg>
+                    <arg attribute="maxlength">50</arg>
+                    <arg attribute="font">Dialog,1,16</arg>
+                    <arg attribute="enabled">false</arg>
+                    <arg attribute="size">20</arg>
+                  </subarg>
+                </parameters>
+              </component>
+              <component>
+                <driver id="seccion">common.gui.components.GenericData</driver>
+                <parameters>
+                  <arg attribute="keySQL">MTSEL0155</arg>
+                  <arg attribute="driverEvent" id="codigo">client.gui.components.EmakuSearchField</arg>
+                  <subarg>
+                    <arg attribute="format">TEXT</arg>
+                    <arg attribute="maxlength">50</arg>
+                    <arg attribute="font">Dialog,1,16</arg>
+                    <arg attribute="enabled">false</arg>
+                    <arg attribute="size">20</arg>
+                  </subarg>
+                </parameters>
+              </component>
+              <component>
+                <driver id="grupo">common.gui.components.GenericData</driver>
+                <parameters>
+                  <arg attribute="keySQL">MTSEL0156</arg>
+                  <arg attribute="driverEvent" id="codigo">client.gui.components.EmakuSearchField</arg>
+                  <subarg>
+                    <arg attribute="format">TEXT</arg>
+                    <arg attribute="maxlength">50</arg>
+                    <arg attribute="font">Dialog,1,16</arg>
+                    <arg attribute="enabled">false</arg>
+                    <arg attribute="size">20</arg>
+                  </subarg>
+                </parameters>
+              </component>
+              <component>
+                <driver id="subgrupo">common.gui.components.GenericData</driver>
+                <parameters>
+                  <arg attribute="keySQL">MTSEL0157</arg>
+                  <arg attribute="driverEvent" id="codigo">client.gui.components.EmakuSearchField</arg>
+                  <subarg>
+                    <arg attribute="format">TEXT</arg>
+                    <arg attribute="maxlength">50</arg>
+                    <arg attribute="font">Dialog,1,16</arg>
+                    <arg attribute="enabled">false</arg>
+                    <arg attribute="size">20</arg>
+                  </subarg>
+                </parameters>
+              </component>
+              <component>
+                <driver id="saldomt">common.gui.components.GenericData</driver>
+                <parameters>
+                  <arg attribute="keySQL">MTSEL0286</arg>
+                  <arg attribute="driverEvent" id="codigo">client.gui.components.EmakuSearchField</arg>
+                  <subarg>
+                    <arg attribute="format">TEXT</arg>
+                    <arg attribute="size">20</arg>
+                    <arg attribute="background">220,251,187</arg>
+                    <arg attribute="foreground">0,0,0</arg>
+                    <arg attribute="font">Dialog,1,16</arg>
+                    <arg attribute="maxlength">50</arg>
+                    <arg attribute="enabled">false</arg>
+                  </subarg>
+                </parameters>
+              </component>
+              <component>
+                  <driver id="saldomto">common.gui.components.GenericData</driver>
+                  <parameters>
+                    <arg attribute="keySQL">MTSEL0593</arg>
+                    <arg attribute="driverEvent" id="codigo">client.gui.components.EmakuSearchField</arg>
+                    <subarg>
+                      <arg attribute="format">TEXT</arg>
+                      <arg attribute="size">20</arg>
+                      <arg attribute="background">210,180,140</arg>
+                      <arg attribute="foreground">0,0,0</arg>
+                      <arg attribute="font">Dialog,1,16</arg>
+                      <arg attribute="maxlength">50</arg>
+                      <arg attribute="enabled">false</arg>
+                    </subarg>
+                  </parameters>
+                </component>
+            </panel>
+          </panel>
+          <panel type="BorderLayout">
+            <panel locate="West" type="GridLayout" rows="6" cols="1">
+              <component>
+                <driver>common.gui.components.XMLLabel</driver>
+                <parameters>
+                  <arg attribute="text">Costo</arg>
+                  <arg attribute="font">Dialog,1,16</arg>
+                  <arg attribute="alignment">0</arg>
+                </parameters>
+              </component>
+              <component>
+                <driver>common.gui.components.XMLLabel</driver>
+                <parameters>
+                  <arg attribute="text">V. Compra</arg>
+                  <arg attribute="font">Dialog,1,16</arg>
+                  <arg attribute="alignment">0</arg>
+                </parameters>
+              </component>
+
+              <component>
+                <driver>common.gui.components.XMLLabel</driver>
+                <parameters>
+                  <arg attribute="text">P.Venta1</arg>
+                  <arg attribute="font">Dialog,1,16</arg>
+                  <arg attribute="alignment">0</arg>
+                </parameters>
+              </component>
+              <component>
+                <driver>common.gui.components.XMLLabel</driver>
+                <parameters>
+                  <arg attribute="text">P.Venta2</arg>
+                  <arg attribute="font">Dialog,1,16</arg>
+                  <arg attribute="alignment">0</arg>
+                </parameters>
+              </component>
+            <component>
+              <driver>common.gui.components.XMLLabel</driver>
+              <parameters>
+                <arg attribute="text">Saldo Sport</arg>
+                <arg attribute="font">Dialog,1,16</arg>
+                <arg attribute="alignment">0</arg>
+              </parameters>
+            </component>
+            <component>
+              <driver>common.gui.components.XMLLabel</driver>
+              <parameters>
+                <arg attribute="text">Saldo Itagui</arg>
+                <arg attribute="font">Dialog,1,16</arg>
+                <arg attribute="alignment">0</arg>
+              </parameters>
+            </component>
+            </panel>
+            <panel locate="Center" type="GridLayout" rows="6" cols="1">
+
+
+              <component>
+                <driver id="costo">common.gui.components.GenericData</driver>
+                <parameters>
+                  <arg attribute="keySQL">MTSEL0163</arg>
+                  <arg attribute="driverEvent" id="codigo">client.gui.components.EmakuSearchField</arg>
+                  <subarg>
+                    <arg attribute="name">COSTO</arg>
+                    <arg attribute="format">NUMERIC</arg>
+                    <arg attribute="font">Dialog,1,16</arg>
+                    <arg attribute="alignment">RIGHT</arg>
+                    <arg attribute="maxlength">50</arg>
+                    <arg attribute="enabled">false</arg>
+                    <arg attribute="size">18</arg>
+                    <arg attribute="exportValue">costo</arg>
+                  </subarg>
+                </parameters>
+              </component>
+              <component>
+                <driver id="vcompra">common.gui.components.GenericData</driver>
+                <parameters>
+                  <arg attribute="keySQL">MTSEL0163</arg>
+                  <arg attribute="driverEvent" id="codigo">client.gui.components.EmakuSearchField</arg>
+                  <subarg>
+                    <arg attribute="format">NUMERIC</arg>
+                    <arg attribute="maxlength">50</arg>
+                    <arg attribute="alignment">RIGHT</arg>
+                    <arg attribute="font">Dialog,1,16</arg>
+                    <arg attribute="enabled">false</arg>
+                    <arg attribute="size">18</arg>
+                    <arg attribute="exportValue">vcompra</arg>
+                  </subarg>
+                </parameters>
+              </component>
+              <component>
+                <driver id="pventa1">common.gui.components.GenericData</driver>
+                <parameters>
+                  <arg attribute="keySQL">MTSEL0164</arg>
+                  <arg attribute="driverEvent" id="codigo">client.gui.components.EmakuSearchField</arg>
+                  <subarg>
+                    <arg attribute="format">NUMERIC</arg>
+                    <arg attribute="maxlength">50</arg>
+                    <arg attribute="alignment">RIGHT</arg>
+                    <arg attribute="font">Dialog,1,16</arg>
+                    <arg attribute="enabled">false</arg>
+                    <arg attribute="size">18</arg>
+                    <arg attribute="exportValue">pventa1</arg>
+                  </subarg>
+                </parameters>
+              </component>
+              <component>
+                <driver id="pventa2">common.gui.components.GenericData</driver>
+                <parameters>
+                  <arg attribute="keySQL">MTSEL0165</arg>
+                  <arg attribute="driverEvent" id="codigo">client.gui.components.EmakuSearchField</arg>
+                  <subarg>
+                    <arg attribute="format">NUMERIC</arg>
+                    <arg attribute="maxlength">50</arg>
+                    <arg attribute="font">Dialog,1,16</arg>
+                    <arg attribute="alignment">RIGHT</arg>
+                    <arg attribute="enabled">false</arg>
+                    <arg attribute="size">18</arg>
+                    <arg attribute="exportValue">pventa2</arg>
+                  </subarg>
+                </parameters>
+              </component>
+              <component>
+                <driver id="saldosport">common.gui.components.GenericData</driver>
+                <parameters>
+                  <arg attribute="keySQL">MTSEL0285</arg>
+                  <arg attribute="driverEvent" id="codigo">client.gui.components.EmakuSearchField</arg>
+                  <subarg>
+                    <arg attribute="format">TEXT</arg>
+                    <arg attribute="size">18</arg>
+                    <arg attribute="maxlength">50</arg>
+                    <arg attribute="background">255,203,138</arg>
+                    <arg attribute="foreground">0,0,0</arg>
+                    <arg attribute="font">Dialog,1,16</arg>
+                    <arg attribute="enabled">false</arg>
+                  </subarg>
+                </parameters>
+              </component>
+              <component>
+                <driver id="saldoitagui">common.gui.components.GenericData</driver>
+                <parameters>
+                  <arg attribute="keySQL">MTSEL0594</arg>
+                  <arg attribute="driverEvent" id="codigo">client.gui.components.EmakuSearchField</arg>
+                  <subarg>
+                    <arg attribute="format">TEXT</arg>
+                    <arg attribute="size">18</arg>
+                    <arg attribute="maxlength">50</arg>
+                    <arg attribute="background">204,229,255</arg>
+                    <arg attribute="foreground">0,0,0</arg>
+                    <arg attribute="font">Dialog,1,16</arg>
+                    <arg attribute="enabled">false</arg>
+                  </subarg>
+                </parameters>
+              </component>
+            </panel>
+          </panel>
+        </panel>
+        <component locate="South">
+          <driver>common.gui.components.ButtonsPanel</driver>
+          <parameters>
+            <subarg>
+              <arg attribute="label">NEW</arg>
+              <arg attribute="icon">/icons/ico_nuevo_32x32.png</arg>
+            </subarg>
+            <subarg>
+              <arg attribute="label">EXIT</arg>
+              <arg attribute="icon">/icons/ico_salir_32x32.png</arg>
+            </subarg>
+          </parameters>
+        </component>
+      </panel>
+    </panel>
+    <panel name="Kardex" icon="/icons/ico_con_materiap.png" type="BorderLayout">
+      <panel locate="Center" type="GridLayout" rows="2" cols="1">
+        <tab locate="Center">
+          <panel name="Movimiento M.T." icon="GENERAL" type="BorderLayout">
+            <component locate="Center">
+              <driver id="kardexmt">client.gui.components.TableFindData</driver>
+              <parameters>
+                <arg attribute="keySQL">MTSEL0284</arg>
+                <arg attribute="driverEvent" id="codigo">client.gui.components.EmakuSearchField</arg>
+                <arg attribute="rows">100</arg>
+                <!--                <arg attribute="Query">MTSEL0051</arg>  -->
+                <arg attribute="colorBackground">220,251,187</arg>
+                <arg attribute="colorSelected">68,117,171</arg>
+                <arg attribute="protectSelected">true</arg>
+                <subarg><!-- 0 a -->
+                  <arg attribute="name">Fecha</arg>
+                  <arg attribute="length">83</arg>
+                  <arg attribute="type">STRING</arg>
+                  <arg attribute="clean">false</arg>
+                  <arg attribute="enabled">true</arg>
+                  <arg attribute="defaultValue">0</arg>
+                  <arg attribute="queryCol">0</arg>
+                </subarg>
+                <subarg><!-- 1 b -->
+                  <arg attribute="name">Documento</arg>
+                  <arg attribute="length">122</arg>
+                  <arg attribute="type">STRING</arg>
+                  <arg attribute="clean">false</arg>
+                  <arg attribute="enabled">true</arg>
+                  <arg attribute="defaultValue">0</arg>
+                  <arg attribute="queryCol">1</arg>
+                </subarg>
+                <subarg><!-- 2 c -->
+                  <arg attribute="name">Estado</arg>
+                  <arg attribute="length">80</arg>
+                  <arg attribute="type">STRING</arg>
+                  <arg attribute="enabled">false</arg>
+                  <arg attribute="printable">true</arg>
+                  <arg attribute="queryCol">2</arg>
+                </subarg>
+                <subarg><!-- 3 d -->
+                  <arg attribute="name">P.Invent</arg>
+                  <arg attribute="length">80</arg>
+                  <arg attribute="type">DECIMAL</arg>
+                  <arg attribute="clean">false</arg>
+                  <arg attribute="enabled">true</arg>
+                  <arg attribute="queryCol">3</arg>
+
+                </subarg>
+                <subarg><!-- 4 e -->
+                  <arg attribute="name">Entrada</arg>
+                  <arg attribute="length">80</arg>
+                  <arg attribute="type">INTEGER</arg>
+                  <arg attribute="clean">false</arg>
+                  <arg attribute="enabled">false</arg>
+                  <arg attribute="queryCol">4</arg>
+                </subarg>
+                <subarg><!-- 5 f -->
+                  <arg attribute="name">V.Entrada</arg>
+                  <arg attribute="length">80</arg>
+                  <arg attribute="type">DECIMAL</arg>
+                  <arg attribute="clean">false</arg>
+                  <arg attribute="enabled">true</arg>
+                  <arg attribute="returnCol">0</arg>
+                  <arg attribute="queryCol">5</arg>
+                </subarg>
+                <subarg><!-- 6 g -->
+                  <arg attribute="name">Salida</arg>
+                  <arg attribute="length">80</arg>
+                  <arg attribute="type">INTEGER</arg>
+                  <arg attribute="clean">false</arg>
+                  <arg attribute="enabled">false</arg>
+                  <arg attribute="queryCol">6</arg>
+                </subarg>
+                <subarg><!-- 7 h -->
+                  <arg attribute="name">V.Salida</arg>
+                  <arg attribute="length">80</arg>
+                  <arg attribute="type">DECIMAL</arg>
+                  <arg attribute="clean">false</arg>
+                  <arg attribute="enabled">true</arg>
+                  <arg attribute="returnCol">0</arg>
+                  <arg attribute="queryCol">7</arg>
+                </subarg>
+                <subarg><!-- 8 i -->
+                  <arg attribute="name">Saldo</arg>
+                  <arg attribute="length">80</arg>
+                  <arg attribute="type">INTEGER</arg>
+                  <arg attribute="clean">false</arg>
+                  <arg attribute="enabled">false</arg>
+                  <arg attribute="queryCol">8</arg>
+                </subarg>
+                <subarg><!-- 9 j -->
+                  <arg attribute="name">V.Saldo</arg>
+                  <arg attribute="length">80</arg>
+                  <arg attribute="type">DECIMAL</arg>
+                  <arg attribute="clean">false</arg>
+                  <arg attribute="enabled">true</arg>
+                  <arg attribute="queryCol">9</arg>
+                </subarg>
+                <subarg><!-- 10 k -->
+                  <arg attribute="name">fecha</arg>
+                  <arg attribute="length">0</arg>
+                  <arg attribute="type">STRING</arg>
+                  <arg attribute="clean">false</arg>
+                  <arg attribute="enabled">false</arg>
+
+                </subarg>
+                <subarg><!-- 11 l -->
+                  <arg attribute="name">idprodserv</arg>
+                  <arg attribute="length">80</arg>
+                  <arg attribute="type">STRING</arg>
+                  <arg attribute="clean">false</arg>
+                  <arg attribute="enabled">false</arg>
+                </subarg>
+                <subarg><!-- 12 m -->
+                  <arg attribute="name">Campo</arg>
+                  <arg attribute="length">0</arg>
+                  <arg attribute="type">INTEGER</arg>
+                  <arg attribute="clean">false</arg>
+                  <arg attribute="enabled">true</arg>
+                </subarg>
+                <subarg><!-- 13 n -->
+                  <arg attribute="name">Campo2</arg>
+                  <arg attribute="length">0</arg>
+                  <arg attribute="type">INTEGER</arg>
+                  <arg attribute="clean">false</arg>
+                  <arg attribute="enabled">true</arg>
+                </subarg>
+                <subarg><!-- 14 o -->
+                  <arg attribute="name">Campo3</arg>
+                  <arg attribute="length">0</arg>
+                  <arg attribute="type">INTEGER</arg>
+                  <arg attribute="clean">false</arg>
+                  <arg attribute="enabled">true</arg>
+                </subarg>
+              </parameters>
+            </component>
+          </panel>
+        </tab>
+        <tab locate="Center">
+          <panel name="Movimiento M.T. Sport" icon="GENERAL" type="BorderLayout">
+            <component locate="Center">
+              <driver id="kardexsport">client.gui.components.TableFindData</driver>
+              <parameters>
+                <arg attribute="keySQL">MTSEL0281</arg>
+                <arg attribute="driverEvent" id="codigo">client.gui.components.EmakuSearchField</arg>
+                <arg attribute="rows">100</arg>
+                <arg attribute="colorBackground">255,203,138</arg>
+                <arg attribute="colorSelected">247,175,86</arg>
+                <arg attribute="protectSelected">true</arg>
+                <subarg><!-- 0 a -->
+                  <arg attribute="name">Fecha</arg>
+                  <arg attribute="length">83</arg>
+                  <arg attribute="type">STRING</arg>
+                  <arg attribute="clean">false</arg>
+                  <arg attribute="enabled">true</arg>
+                  <arg attribute="queryCol">0</arg>
+                </subarg>
+                <subarg><!-- 1 b -->
+                  <arg attribute="name">Documento</arg>
+                  <arg attribute="length">122</arg>
+                  <arg attribute="type">STRING</arg>
+                  <arg attribute="clean">false</arg>
+                  <arg attribute="enabled">true</arg>
+                  <arg attribute="defaultValue">0</arg>
+                  <arg attribute="queryCol">1</arg>
+                </subarg>
+                <subarg><!-- 2 c -->
+                  <arg attribute="name">Estado</arg>
+                  <arg attribute="length">80</arg>
+                  <arg attribute="type">STRING</arg>
+                  <arg attribute="enabled">false</arg>
+                  <arg attribute="printable">true</arg>
+                  <arg attribute="queryCol">2</arg>
+                </subarg>
+                <subarg><!-- 3 d -->
+                  <arg attribute="name">P.Invent</arg>
+                  <arg attribute="length">80</arg>
+                  <arg attribute="type">DECIMAL</arg>
+                  <arg attribute="clean">false</arg>
+                  <arg attribute="enabled">true</arg>
+                  <arg attribute="queryCol">3</arg>
+                </subarg>
+                <subarg><!-- 4 e -->
+                  <arg attribute="name">Entrada</arg>
+                  <arg attribute="length">80</arg>
+                  <arg attribute="type">INTEGER</arg>
+                  <arg attribute="clean">false</arg>
+                  <arg attribute="enabled">false</arg>
+                  <arg attribute="queryCol">4</arg>
+                </subarg>
+                <subarg><!-- 5 f -->
+                  <arg attribute="name">V.Entrada</arg>
+                  <arg attribute="length">80</arg>
+                  <arg attribute="type">DECIMAL</arg>
+                  <arg attribute="clean">false</arg>
+                  <arg attribute="enabled">true</arg>
+                  <arg attribute="queryCol">5</arg>
+                </subarg>
+                <subarg><!-- 6 g -->
+                  <arg attribute="name">Salida</arg>
+                  <arg attribute="length">80</arg>
+                  <arg attribute="type">INTEGER</arg>
+                  <arg attribute="clean">false</arg>
+                  <arg attribute="enabled">false</arg>
+                  <arg attribute="queryCol">6</arg>
+                </subarg>
+                <subarg><!-- 7 h -->
+                  <arg attribute="name">V.Salida</arg>
+                  <arg attribute="length">80</arg>
+                  <arg attribute="type">DECIMAL</arg>
+                  <arg attribute="clean">false</arg>
+                  <arg attribute="enabled">true</arg>
+                  <arg attribute="queryCol">7</arg>
+                </subarg>
+                <subarg><!-- 8 i -->
+                  <arg attribute="name">Saldo</arg>
+                  <arg attribute="length">80</arg>
+                  <arg attribute="type">INTEGER</arg>
+                  <arg attribute="clean">false</arg>
+                  <arg attribute="enabled">false</arg>
+                  <arg attribute="queryCol">8</arg>
+                </subarg>
+                <subarg><!-- 9 j -->
+                  <arg attribute="name">V.Saldo</arg>
+                  <arg attribute="length">80</arg>
+                  <arg attribute="type">DECIMAL</arg>
+                  <arg attribute="clean">false</arg>
+                  <arg attribute="enabled">true</arg>
+                  <arg attribute="queryCol">9</arg>
+                </subarg>
+                <subarg><!-- 10 k -->
+                  <arg attribute="name">fecha</arg>
+                  <arg attribute="length">0</arg>
+                  <arg attribute="type">STRING</arg>
+                  <arg attribute="clean">false</arg>
+                  <arg attribute="enabled">false</arg>
+                </subarg>
+                <subarg><!-- 11 l -->
+                  <arg attribute="name">idprodserv</arg>
+                  <arg attribute="length">80</arg>
+                  <arg attribute="type">STRING</arg>
+                  <arg attribute="clean">false</arg>
+                  <arg attribute="enabled">false</arg>
+
+                </subarg>
+                <subarg><!-- 12 m -->
+                  <arg attribute="name">Campo</arg>
+                  <arg attribute="length">0</arg>
+                  <arg attribute="type">INTEGER</arg>
+                  <arg attribute="clean">false</arg>
+                  <arg attribute="enabled">true</arg>
+                </subarg>
+                <subarg><!-- 13 n -->
+                  <arg attribute="name">Campo2</arg>
+                  <arg attribute="length">0</arg>
+                  <arg attribute="type">INTEGER</arg>
+                  <arg attribute="clean">false</arg>
+                  <arg attribute="enabled">true</arg>
+                </subarg>
+                <subarg><!-- 14 o -->
+                  <arg attribute="name">Campo3</arg>
+                  <arg attribute="length">0</arg>
+                  <arg attribute="type">INTEGER</arg>
+                  <arg attribute="clean">false</arg>
+                  <arg attribute="enabled">true</arg>
+                </subarg>
+              </parameters>
+            </component>
+          </panel>
+          <panel name="Movimiento M.T. Orange" icon="GENERAL" type="BorderLayout">
+            <component locate="Center">
+              <driver id="kardexorange">client.gui.components.TableFindData</driver>
+              <parameters>
+                <arg attribute="keySQL">MTSEL0508</arg>
+                <arg attribute="driverEvent" id="codigo">client.gui.components.EmakuSearchField</arg>
+                <arg attribute="rows">100</arg>
+                <arg attribute="colorBackground">210,180,140</arg>
+                <arg attribute="colorSelected">210,160,140</arg>
+                <arg attribute="protectSelected">true</arg>
+                <subarg><!-- 0 a -->
+                  <arg attribute="name">Fecha</arg>
+                  <arg attribute="length">83</arg>
+                  <arg attribute="type">STRING</arg>
+                  <arg attribute="clean">false</arg>
+                  <arg attribute="enabled">true</arg>
+                  <arg attribute="queryCol">0</arg>
+                </subarg>
+                <subarg><!-- 1 b -->
+                  <arg attribute="name">Documento</arg>
+                  <arg attribute="length">122</arg>
+                  <arg attribute="type">STRING</arg>
+                  <arg attribute="clean">false</arg>
+                  <arg attribute="enabled">true</arg>
+                  <arg attribute="defaultValue">0</arg>
+                  <arg attribute="queryCol">1</arg>
+                </subarg>
+                <subarg><!-- 2 c -->
+                  <arg attribute="name">Estado</arg>
+                  <arg attribute="length">80</arg>
+                  <arg attribute="type">STRING</arg>
+                  <arg attribute="enabled">false</arg>
+                  <arg attribute="printable">true</arg>
+                  <arg attribute="queryCol">2</arg>
+                </subarg>
+                <subarg><!-- 3 d -->
+                  <arg attribute="name">P.Invent</arg>
+                  <arg attribute="length">80</arg>
+                  <arg attribute="type">DECIMAL</arg>
+                  <arg attribute="clean">false</arg>
+                  <arg attribute="enabled">true</arg>
+                  <arg attribute="queryCol">3</arg>
+                </subarg>
+                <subarg><!-- 4 e -->
+                  <arg attribute="name">Entrada</arg>
+                  <arg attribute="length">80</arg>
+                  <arg attribute="type">INTEGER</arg>
+                  <arg attribute="clean">false</arg>
+                  <arg attribute="enabled">false</arg>
+                  <arg attribute="queryCol">4</arg>
+                </subarg>
+                <subarg><!-- 5 f -->
+                  <arg attribute="name">V.Entrada</arg>
+                  <arg attribute="length">80</arg>
+                  <arg attribute="type">DECIMAL</arg>
+                  <arg attribute="clean">false</arg>
+                  <arg attribute="enabled">true</arg>
+                  <arg attribute="queryCol">5</arg>
+                </subarg>
+                <subarg><!-- 6 g -->
+                  <arg attribute="name">Salida</arg>
+                  <arg attribute="length">80</arg>
+                  <arg attribute="type">INTEGER</arg>
+                  <arg attribute="clean">false</arg>
+                  <arg attribute="enabled">false</arg>
+                  <arg attribute="queryCol">6</arg>
+                </subarg>
+                <subarg><!-- 7 h -->
+                  <arg attribute="name">V.Salida</arg>
+                  <arg attribute="length">80</arg>
+                  <arg attribute="type">DECIMAL</arg>
+                  <arg attribute="clean">false</arg>
+                  <arg attribute="enabled">true</arg>
+                  <arg attribute="queryCol">7</arg>
+                </subarg>
+                <subarg><!-- 8 i -->
+                  <arg attribute="name">Saldo</arg>
+                  <arg attribute="length">80</arg>
+                  <arg attribute="type">INTEGER</arg>
+                  <arg attribute="clean">false</arg>
+                  <arg attribute="enabled">false</arg>
+                  <arg attribute="queryCol">8</arg>
+                </subarg>
+                <subarg><!-- 9 j -->
+                  <arg attribute="name">V.Saldo</arg>
+                  <arg attribute="length">80</arg>
+                  <arg attribute="type">DECIMAL</arg>
+                  <arg attribute="clean">false</arg>
+                  <arg attribute="enabled">true</arg>
+                  <arg attribute="queryCol">9</arg>
+                </subarg>
+                <subarg><!-- 10 k -->
+                  <arg attribute="name">fecha</arg>
+                  <arg attribute="length">0</arg>
+                  <arg attribute="type">STRING</arg>
+                  <arg attribute="clean">false</arg>
+                  <arg attribute="enabled">false</arg>
+                </subarg>
+                <subarg><!-- 11 l -->
+                  <arg attribute="name">idprodserv</arg>
+                  <arg attribute="length">80</arg>
+                  <arg attribute="type">STRING</arg>
+                  <arg attribute="clean">false</arg>
+                  <arg attribute="enabled">false</arg>
+
+                </subarg>
+                <subarg><!-- 12 m -->
+                  <arg attribute="name">Campo</arg>
+                  <arg attribute="length">0</arg>
+                  <arg attribute="type">INTEGER</arg>
+                  <arg attribute="clean">false</arg>
+                  <arg attribute="enabled">true</arg>
+                </subarg>
+                <subarg><!-- 13 n -->
+                  <arg attribute="name">Campo2</arg>
+                  <arg attribute="length">0</arg>
+                  <arg attribute="type">INTEGER</arg>
+                  <arg attribute="clean">false</arg>
+                  <arg attribute="enabled">true</arg>
+                </subarg>
+                <subarg><!-- 14 o -->
+                  <arg attribute="name">Campo3</arg>
+                  <arg attribute="length">0</arg>
+                  <arg attribute="type">INTEGER</arg>
+                  <arg attribute="clean">false</arg>
+                  <arg attribute="enabled">true</arg>
+                </subarg>
+              </parameters>
+            </component>
+          </panel>          
+          <panel name="Movimiento M.T. Itagui" icon="GENERAL" type="BorderLayout">
+            <component locate="Center">
+              <driver id="kardexitagui">client.gui.components.TableFindData</driver>
+              <parameters>
+                <arg attribute="keySQL">MTSEL0598</arg>
+                <arg attribute="driverEvent" id="codigo">client.gui.components.EmakuSearchField</arg>
+                <arg attribute="rows">100</arg>
+                <arg attribute="colorBackground">204,229,255</arg>
+                <arg attribute="colorSelected">204,229,150</arg>
+                <arg attribute="protectSelected">true</arg>
+                <subarg><!-- 0 a -->
+                  <arg attribute="name">Fecha</arg>
+                  <arg attribute="length">83</arg>
+                  <arg attribute="type">STRING</arg>
+                  <arg attribute="clean">false</arg>
+                  <arg attribute="enabled">true</arg>
+                  <arg attribute="queryCol">0</arg>
+                </subarg>
+                <subarg><!-- 1 b -->
+                  <arg attribute="name">Documento</arg>
+                  <arg attribute="length">122</arg>
+                  <arg attribute="type">STRING</arg>
+                  <arg attribute="clean">false</arg>
+                  <arg attribute="enabled">true</arg>
+                  <arg attribute="defaultValue">0</arg>
+                  <arg attribute="queryCol">1</arg>
+                </subarg>
+                <subarg><!-- 2 c -->
+                  <arg attribute="name">Estado</arg>
+                  <arg attribute="length">80</arg>
+                  <arg attribute="type">STRING</arg>
+                  <arg attribute="enabled">false</arg>
+                  <arg attribute="printable">true</arg>
+                  <arg attribute="queryCol">2</arg>
+                </subarg>
+                <subarg><!-- 3 d -->
+                  <arg attribute="name">P.Invent</arg>
+                  <arg attribute="length">80</arg>
+                  <arg attribute="type">DECIMAL</arg>
+                  <arg attribute="clean">false</arg>
+                  <arg attribute="enabled">true</arg>
+                  <arg attribute="queryCol">3</arg>
+                </subarg>
+                <subarg><!-- 4 e -->
+                  <arg attribute="name">Entrada</arg>
+                  <arg attribute="length">80</arg>
+                  <arg attribute="type">INTEGER</arg>
+                  <arg attribute="clean">false</arg>
+                  <arg attribute="enabled">false</arg>
+                  <arg attribute="queryCol">4</arg>
+                </subarg>
+                <subarg><!-- 5 f -->
+                  <arg attribute="name">V.Entrada</arg>
+                  <arg attribute="length">80</arg>
+                  <arg attribute="type">DECIMAL</arg>
+                  <arg attribute="clean">false</arg>
+                  <arg attribute="enabled">true</arg>
+                  <arg attribute="queryCol">5</arg>
+                </subarg>
+                <subarg><!-- 6 g -->
+                  <arg attribute="name">Salida</arg>
+                  <arg attribute="length">80</arg>
+                  <arg attribute="type">INTEGER</arg>
+                  <arg attribute="clean">false</arg>
+                  <arg attribute="enabled">false</arg>
+                  <arg attribute="queryCol">6</arg>
+                </subarg>
+                <subarg><!-- 7 h -->
+                  <arg attribute="name">V.Salida</arg>
+                  <arg attribute="length">80</arg>
+                  <arg attribute="type">DECIMAL</arg>
+                  <arg attribute="clean">false</arg>
+                  <arg attribute="enabled">true</arg>
+                  <arg attribute="queryCol">7</arg>
+                </subarg>
+                <subarg><!-- 8 i -->
+                  <arg attribute="name">Saldo</arg>
+                  <arg attribute="length">80</arg>
+                  <arg attribute="type">INTEGER</arg>
+                  <arg attribute="clean">false</arg>
+                  <arg attribute="enabled">false</arg>
+                  <arg attribute="queryCol">8</arg>
+                </subarg>
+                <subarg><!-- 9 j -->
+                  <arg attribute="name">V.Saldo</arg>
+                  <arg attribute="length">80</arg>
+                  <arg attribute="type">DECIMAL</arg>
+                  <arg attribute="clean">false</arg>
+                  <arg attribute="enabled">true</arg>
+                  <arg attribute="queryCol">9</arg>
+                </subarg>
+                <subarg><!-- 10 k -->
+                  <arg attribute="name">fecha</arg>
+                  <arg attribute="length">0</arg>
+                  <arg attribute="type">STRING</arg>
+                  <arg attribute="clean">false</arg>
+                  <arg attribute="enabled">false</arg>
+                </subarg>
+                <subarg><!-- 11 l -->
+                  <arg attribute="name">idprodserv</arg>
+                  <arg attribute="length">80</arg>
+                  <arg attribute="type">STRING</arg>
+                  <arg attribute="clean">false</arg>
+                  <arg attribute="enabled">false</arg>
+
+                </subarg>
+                <subarg><!-- 12 m -->
+                  <arg attribute="name">Campo</arg>
+                  <arg attribute="length">0</arg>
+                  <arg attribute="type">INTEGER</arg>
+                  <arg attribute="clean">false</arg>
+                  <arg attribute="enabled">true</arg>
+                </subarg>
+                <subarg><!-- 13 n -->
+                  <arg attribute="name">Campo2</arg>
+                  <arg attribute="length">0</arg>
+                  <arg attribute="type">INTEGER</arg>
+                  <arg attribute="clean">false</arg>
+                  <arg attribute="enabled">true</arg>
+                </subarg>
+                <subarg><!-- 14 o -->
+                  <arg attribute="name">Campo3</arg>
+                  <arg attribute="length">0</arg>
+                  <arg attribute="type">INTEGER</arg>
+                  <arg attribute="clean">false</arg>
+                  <arg attribute="enabled">true</arg>
+                </subarg>
+              </parameters>
+            </component>
+          </panel>          
+        </tab>
+      </panel>
+    </panel>
+    <panel name="Barras Asociadas" icon="/icons/ico_cotizacion.png" type="BorderLayout">
+      <panel locate="Center" type="BorderLayout">
+        <component locate="Center">
+          <driver id="barras">client.gui.components.TableFindData</driver>
+          <parameters>
+            <arg attribute="keySQL">MTSEL0282</arg>
+            <arg attribute="driverEvent" id="codigo">client.gui.components.EmakuSearchField</arg>
+            <arg attribute="rows">100</arg>
+            <arg attribute="colorBackground">243,210,253</arg>
+            <arg attribute="colorSelected">235,196,246</arg>
+            <arg attribute="protectSelected">true</arg>
+            <subarg>
+              <arg attribute="name">CODE</arg>
+              <arg attribute="length">135</arg>
+              <arg attribute="type">STRING</arg>
+              <arg attribute="printable">true</arg>
+              <arg attribute="enabled">true</arg>
+              <arg attribute="clean">true</arg>
+              <arg attribute="queryCol">0</arg>
+            </subarg>
+            <subarg><!-- 3 d -->
+              <arg attribute="name">Descripcion</arg>
+              <arg attribute="length">260</arg>
+              <arg attribute="type">STRING</arg>
+              <arg attribute="enabled">false</arg>
+              <arg attribute="clean">false</arg>
+              <arg attribute="queryCol">1</arg>
+            </subarg>
+            <subarg><!-- 4 e -->
+              <arg attribute="name">Color</arg>
+              <arg attribute="length">70</arg>
+              <arg attribute="type">STRING</arg>
+              <arg attribute="clean">false</arg>
+              <arg attribute="enabled">false</arg>
+              <arg attribute="queryCol">2</arg>
+            </subarg>
+            <subarg><!-- 5 f -->
+              <arg attribute="name">Talla</arg>
+              <arg attribute="length">60</arg>
+              <arg attribute="type">STRING</arg>
+              <arg attribute="clean">false</arg>
+              <arg attribute="enabled">false</arg>
+              <arg attribute="queryCol">3</arg>
+            </subarg>
+            <subarg><!-- 6 g -->
+              <arg attribute="name">Sdo.M.T.</arg>
+              <arg attribute="length">80</arg>
+              <arg attribute="type">INTEGER</arg>
+              <arg attribute="clean">false</arg>
+              <arg attribute="enabled">false</arg>
+              <arg attribute="queryCol">4</arg>
+            </subarg>
+            <subarg><!-- 7 h-->
+              <arg attribute="name">Sdo Sport</arg>
+              <arg attribute="length">80</arg>
+              <arg attribute="type">INTEGER</arg>
+              <arg attribute="clean">false</arg>
+              <arg attribute="enabled">false</arg>
+              <arg attribute="queryCol">5</arg>
+            </subarg>
+            <subarg><!-- 8 i -->
+              <arg attribute="name">Pventa 1</arg>
+              <arg attribute="length">80</arg>
+              <arg attribute="type">DECIMAL</arg>
+              <arg attribute="clean">false</arg>
+              <arg attribute="enabled">true</arg>
+              <arg attribute="returnCol">6</arg>
+
+            </subarg>
+            <subarg><!-- 9 j -->
+              <arg attribute="name">Pventa 2</arg>
+              <arg attribute="length">80</arg>
+              <arg attribute="type">DECIMAL</arg>
+              <arg attribute="clean">false</arg>
+              <arg attribute="enabled">true</arg>
+              <arg attribute="returnCol">1</arg>
+              <arg attribute="queryCol">7</arg>
+            </subarg>
+            <subarg><!-- 10 k -->
+              <arg attribute="name">fecha</arg>
+              <arg attribute="length">90</arg>
+              <arg attribute="type">STRING</arg>
+              <arg attribute="clean">false</arg>
+              <arg attribute="enabled">false</arg>
+              <arg attribute="queryCol">8</arg>
+            </subarg>
+            <subarg><!-- 11 l -->
+              <arg attribute="name">idprodserv</arg>
+              <arg attribute="length">80</arg>
+              <arg attribute="type">STRING</arg>
+              <arg attribute="clean">false</arg>
+              <arg attribute="enabled">false</arg>
+              <arg attribute="queryCol">9</arg>
+            </subarg>
+            <subarg><!-- 12 m -->
+              <arg attribute="name">Campo</arg>
+              <arg attribute="length">70</arg>
+              <arg attribute="type">INTEGER</arg>
+              <arg attribute="clean">false</arg>
+              <arg attribute="enabled">true</arg>
+            </subarg>
+            <subarg><!-- 13 n -->
+              <arg attribute="name">Campo2</arg>
+              <arg attribute="length">70</arg>
+              <arg attribute="type">INTEGER</arg>
+              <arg attribute="clean">false</arg>
+              <arg attribute="enabled">true</arg>
+            </subarg>
+            <subarg><!-- 14 o -->
+              <arg attribute="name">Campo3</arg>
+              <arg attribute="length">70</arg>
+              <arg attribute="type">INTEGER</arg>
+              <arg attribute="clean">false</arg>
+              <arg attribute="enabled">true</arg>
+            </subarg>
+          </parameters>
+        </component>
+      </panel>
+    </panel>
+    <panel name="Compras" font="Dialog,1,16" icon="/icons/ico_carro_compras_16x16.png" type="BorderLayout">
+    <panel locate="Center" type="GridLayout" rows="2" cols="1">
+    <tab locate="Center">
+    <panel name="Compras" font="Dialog,1,16" icon="/icons/ico_carro_compras_16x16.png" type="BorderLayout">
+      <component locate="Center">
+        <driver id="compras">client.gui.components.TableFindData</driver>
+        <parameters>
+          <arg attribute="rows">100</arg>
+          <arg attribute="driverEvent" id="codigo">client.gui.components.EmakuSearchField</arg>
+          <arg attribute="keySQL">DLSEL0019</arg>
+          <arg attribute="colorBackground">166,255,241</arg>
+          <arg attribute="colorSelected">244,144,248</arg>
+          <arg attribute="font">Dialog,0,14</arg>
+          <arg attribute="rowHeight">17</arg>
+          <subarg>
+            <arg attribute="name">Fecha</arg>
+            <arg attribute="length">110</arg>
+            <arg attribute="type">STRING</arg>
+            <arg attribute="enabled">false</arg>
+            <arg attribute="clean">true</arg>
+            <arg attribute="queryCol">0</arg>
+          </subarg>
+          <subarg>
+            <arg attribute="name">Documento</arg>
+            <arg attribute="length">140</arg>
+            <arg attribute="type">STRING</arg>
+            <arg attribute="enabled">false</arg>
+            <arg attribute="clean">true</arg>
+            <arg attribute="queryCol">1</arg>
+          </subarg>
+          <subarg>
+            <arg attribute="name">Nit</arg>
+            <arg attribute="length">150</arg>
+            <arg attribute="type">STRING</arg>
+            <arg attribute="enabled">false</arg>
+            <arg attribute="clean">true</arg>
+            <arg attribute="queryCol">2</arg>
+          </subarg>
+          <subarg>
+            <arg attribute="name">Tercero</arg>
+            <arg attribute="length">250</arg>
+            <arg attribute="type">STRING</arg>
+            <arg attribute="enabled">true</arg>
+            <arg attribute="clean">true</arg>
+            <arg attribute="queryCol">3</arg>
+          </subarg>
+          <subarg>
+            <arg attribute="name">Cant</arg>
+            <arg attribute="length">60</arg>
+            <arg attribute="type">INTEGER</arg>
+            <arg attribute="enabled">false</arg>
+            <arg attribute="clean">true</arg>
+            <arg attribute="queryCol">4</arg>
+          </subarg>
+          <subarg>
+            <arg attribute="name">Costo</arg>
+            <arg attribute="length">130</arg>
+            <arg attribute="type">DECIMAL</arg>
+            <arg attribute="roundDecimal">2</arg>
+            <arg attribute="enabled">true</arg>
+            <arg attribute="clean">true</arg>
+            <arg attribute="queryCol">5</arg>
+          </subarg>
+        </parameters>
+      </component>
+    </panel>
+  </tab>
+  <tab>
+    <panel name="Ordenes de Produccion" font="Dialog,1,16" icon="/icons/ico_carro_compras_16x16.png" type="BorderLayout">
+      <component locate="Center">
+        <driver id="compras">client.gui.components.TableFindData</driver>
+        <parameters>
+          <arg attribute="rows">100</arg>
+          <arg attribute="driverEvent" id="codigo">client.gui.components.EmakuSearchField</arg>
+          <arg attribute="keySQL">MTSEL0510</arg>
+          <arg attribute="colorBackground">166,255,241</arg>
+          <arg attribute="colorSelected">244,144,248</arg>
+          <arg attribute="font">Dialog,0,14</arg>
+          <arg attribute="rowHeight">17</arg>
+          <subarg>
+            <arg attribute="name">Fecha</arg>
+            <arg attribute="length">110</arg>
+            <arg attribute="type">STRING</arg>
+            <arg attribute="enabled">false</arg>
+            <arg attribute="clean">true</arg>
+            <arg attribute="queryCol">0</arg>
+          </subarg>
+          <subarg>
+            <arg attribute="name">Documento</arg>
+            <arg attribute="length">140</arg>
+            <arg attribute="type">STRING</arg>
+            <arg attribute="enabled">false</arg>
+            <arg attribute="clean">true</arg>
+            <arg attribute="queryCol">1</arg>
+          </subarg>
+          <subarg>
+            <arg attribute="name">Cant</arg>
+            <arg attribute="length">60</arg>
+            <arg attribute="type">INTEGER</arg>
+            <arg attribute="enabled">false</arg>
+            <arg attribute="clean">true</arg>
+            <arg attribute="queryCol">4</arg>
+          </subarg>
+        </parameters>
+      </component>
+    </panel>
+    <panel name="Informacion de Importacion" font="Dialog,1,16" icon="/icons/ico_actividad_economica_tarifas.png" type="BorderLayout">
+      <component locate="Center">
+        <driver id="compras">client.gui.components.TableFindData</driver>
+        <parameters>
+          <arg attribute="rows">100</arg>
+          <arg attribute="driverEvent" id="codigo">client.gui.components.EmakuSearchField</arg>
+          <arg attribute="keySQL">MTSEL0681</arg>
+          <arg attribute="colorBackground">192,192,192</arg>
+          <arg attribute="colorSelected">192,192,248</arg>
+          <arg attribute="font">Dialog,0,14</arg>
+          <arg attribute="rowHeight">17</arg>
+          <subarg>
+            <arg attribute="name">Fecha</arg>
+            <arg attribute="length">110</arg>
+            <arg attribute="type">STRING</arg>
+            <arg attribute="enabled">false</arg>
+            <arg attribute="clean">true</arg>
+            <arg attribute="queryCol">0</arg>
+          </subarg>
+          <subarg>
+            <arg attribute="name">Documento</arg>
+            <arg attribute="length">140</arg>
+            <arg attribute="type">STRING</arg>
+            <arg attribute="enabled">false</arg>
+            <arg attribute="clean">true</arg>
+            <arg attribute="queryCol">1</arg>
+          </subarg>
+          <subarg><!-- d -->
+            <arg attribute="name">Serial</arg>
+            <arg attribute="length">150</arg>
+            <arg attribute="type">STRING</arg>
+            <arg attribute="enabled">TRUE</arg>
+            <arg attribute="returnCol">1</arg>            
+          </subarg>
+          <subarg><!-- e -->
+            <arg attribute="name">IMEI</arg>
+            <arg attribute="length">150</arg>
+            <arg attribute="type">STRING</arg>
+            <arg attribute="enabled">true</arg>
+            <arg attribute="returnCol">2</arg>            
+          </subarg>
+          <subarg><!-- c -->
+            <arg attribute="name">Manifiesto</arg>
+            <arg attribute="length">150</arg>
+            <arg attribute="type">STRING</arg>
+            <arg attribute="enabled">TRUE</arg>
+            <arg attribute="returnCol">3</arg>
+          </subarg>
+          <subarg><!-- c -->
+            <arg attribute="name">Levante</arg>
+            <arg attribute="length">150</arg>
+            <arg attribute="type">STRING</arg>
+            <arg attribute="enabled">TRUE</arg>
+            <arg attribute="returnCol">4</arg>
+          </subarg>
+          <subarg><!-- c -->
+            <arg attribute="name">Aceptacion</arg>
+            <arg attribute="length">150</arg>
+            <arg attribute="type">STRING</arg>
+            <arg attribute="enabled">TRUE</arg>
+            <arg attribute="returnCol">5</arg>
+          </subarg>
+          <subarg><!-- c -->
+            <arg attribute="name">Subpartida</arg>
+            <arg attribute="length">150</arg>
+            <arg attribute="type">STRING</arg>
+            <arg attribute="enabled">TRUE</arg>
+            <arg attribute="returnCol">6</arg>
+          </subarg>          
+        </parameters>
+      </component>
+    </panel>
+  </tab>
+</panel>
+</panel>
+    <panel name="Ventas" font="Dialog,1,16" icon="/icons/ico_carro_compras_16x16.png" type="BorderLayout">
+      <component locate="Center">
+        <driver id="ventas">client.gui.components.TableFindData</driver>
+        <parameters>
+          <arg attribute="rows">100</arg>
+          <arg attribute="driverEvent" id="codigo">client.gui.components.EmakuSearchField</arg>
+          <arg attribute="keySQL">MTSEL0321</arg>
+          <arg attribute="colorBackground">244,249,146</arg>
+          <arg attribute="colorSelected">230,233,135</arg>
+          <arg attribute="font">Dialog,0,14</arg>
+          <arg attribute="rowHeight">17</arg>
+          <subarg>
+            <arg attribute="name">Fecha</arg>
+            <arg attribute="length">110</arg>
+            <arg attribute="type">STRING</arg>
+            <arg attribute="enabled">false</arg>
+            <arg attribute="clean">true</arg>
+            <arg attribute="queryCol">0</arg>
+          </subarg>
+          <subarg>
+            <arg attribute="name">Documento</arg>
+            <arg attribute="length">140</arg>
+            <arg attribute="type">STRING</arg>
+            <arg attribute="enabled">false</arg>
+            <arg attribute="clean">true</arg>
+            <arg attribute="queryCol">1</arg>
+          </subarg>
+          <subarg>
+            <arg attribute="name">Nit</arg>
+            <arg attribute="length">150</arg>
+            <arg attribute="type">STRING</arg>
+            <arg attribute="enabled">false</arg>
+            <arg attribute="clean">true</arg>
+            <arg attribute="queryCol">2</arg>
+          </subarg>
+          <subarg>
+            <arg attribute="name">Tercero</arg>
+            <arg attribute="length">250</arg>
+            <arg attribute="type">STRING</arg>
+            <arg attribute="enabled">true</arg>
+            <arg attribute="clean">true</arg>
+            <arg attribute="queryCol">3</arg>
+          </subarg>
+          <subarg>
+            <arg attribute="name">Cant</arg>
+            <arg attribute="length">60</arg>
+            <arg attribute="type">INTEGER</arg>
+            <arg attribute="enabled">false</arg>
+            <arg attribute="clean">true</arg>
+            <arg attribute="queryCol">4</arg>
+          </subarg>
+          <subarg>
+            <arg attribute="name">Costo</arg>
+            <arg attribute="length">130</arg>
+            <arg attribute="type">DECIMAL</arg>
+            <arg attribute="roundDecimal">2</arg>
+            <arg attribute="enabled">true</arg>
+            <arg attribute="clean">true</arg>
+            <arg attribute="queryCol">5</arg>
+          </subarg>
+        </parameters>
+      </component>
+    </panel>
+    <panel name="MPrimas" icon="/icons/ico_con_materiap.png" type="BorderLayout">
+      <panel locate="Center" type="GridLayout" rows="2" cols="1">
+        <tab locate="Center">
+          <panel name="Movimiento M. Primas" icon="/icons/ico_con_materiap.png" type="BorderLayout">
+            <component locate="Center">
+              <driver id="kardexmp">client.gui.components.TableFindData</driver>
+              <parameters>
+                <arg attribute="keySQL">MTSEL0465</arg>
+                <arg attribute="driverEvent" id="codigo">client.gui.components.EmakuSearchField</arg>
+                <arg attribute="rows">100</arg>
+                <!--<arg attribute="Query">MTSEL0051</arg>  -->
+                <arg attribute="colorBackground">220,251,187</arg>
+                <arg attribute="colorSelected">68,117,171</arg>
+                <arg attribute="protectSelected">true</arg>
+                <subarg><!-- 0 a -->
+                  <arg attribute="name">Fecha</arg>
+                  <arg attribute="length">83</arg>
+                  <arg attribute="type">STRING</arg>
+                  <arg attribute="clean">false</arg>
+                  <arg attribute="enabled">true</arg>
+                  <arg attribute="defaultValue">0</arg>
+                  <arg attribute="queryCol">0</arg>
+                </subarg>
+                <subarg><!-- 1 b -->
+                  <arg attribute="name">Documento</arg>
+                  <arg attribute="length">122</arg>
+                  <arg attribute="type">STRING</arg>
+                  <arg attribute="clean">false</arg>
+                  <arg attribute="enabled">true</arg>
+                  <arg attribute="defaultValue">0</arg>
+                  <arg attribute="queryCol">1</arg>
+                </subarg>
+                <subarg><!-- 2 c -->
+                  <arg attribute="name">Estado</arg>
+                  <arg attribute="length">80</arg>
+                  <arg attribute="type">STRING</arg>
+                  <arg attribute="enabled">false</arg>
+                  <arg attribute="printable">true</arg>
+                  <arg attribute="queryCol">2</arg>
+                </subarg>
+                <subarg><!-- 3 d -->
+                  <arg attribute="name">P.Invent</arg>
+                  <arg attribute="length">80</arg>
+                  <arg attribute="type">DECIMAL</arg>
+                  <arg attribute="clean">false</arg>
+                  <arg attribute="enabled">true</arg>
+                  <arg attribute="queryCol">3</arg>
+
+                </subarg>
+                <subarg><!-- 4 e -->
+                  <arg attribute="name">Entrada</arg>
+                  <arg attribute="length">80</arg>
+                  <arg attribute="type">INTEGER</arg>
+                  <arg attribute="clean">false</arg>
+                  <arg attribute="enabled">false</arg>
+                  <arg attribute="queryCol">4</arg>
+                </subarg>
+                <subarg><!-- 5 f -->
+                  <arg attribute="name">V.Entrada</arg>
+                  <arg attribute="length">80</arg>
+                  <arg attribute="type">DECIMAL</arg>
+                  <arg attribute="clean">false</arg>
+                  <arg attribute="enabled">true</arg>
+                  <arg attribute="returnCol">0</arg>
+                  <arg attribute="queryCol">5</arg>
+                </subarg>
+                <subarg><!-- 6 g -->
+                  <arg attribute="name">Salida</arg>
+                  <arg attribute="length">80</arg>
+                  <arg attribute="type">INTEGER</arg>
+                  <arg attribute="clean">false</arg>
+                  <arg attribute="enabled">false</arg>
+                  <arg attribute="queryCol">6</arg>
+                </subarg>
+                <subarg><!-- 7 h -->
+                  <arg attribute="name">V.Salida</arg>
+                  <arg attribute="length">80</arg>
+                  <arg attribute="type">DECIMAL</arg>
+                  <arg attribute="clean">false</arg>
+                  <arg attribute="enabled">true</arg>
+                  <arg attribute="returnCol">0</arg>
+                  <arg attribute="queryCol">7</arg>
+                </subarg>
+                <subarg><!-- 8 i -->
+                  <arg attribute="name">Saldo</arg>
+                  <arg attribute="length">80</arg>
+                  <arg attribute="type">INTEGER</arg>
+                  <arg attribute="clean">false</arg>
+                  <arg attribute="enabled">false</arg>
+                  <arg attribute="queryCol">8</arg>
+                </subarg>
+                <subarg><!-- 9 j -->
+                  <arg attribute="name">V.Saldo</arg>
+                  <arg attribute="length">80</arg>
+                  <arg attribute="type">DECIMAL</arg>
+                  <arg attribute="clean">false</arg>
+                  <arg attribute="enabled">true</arg>
+                  <arg attribute="queryCol">9</arg>
+                </subarg>
+                <subarg><!-- 10 k -->
+                  <arg attribute="name">fecha</arg>
+                  <arg attribute="length">0</arg>
+                  <arg attribute="type">STRING</arg>
+                  <arg attribute="clean">false</arg>
+                  <arg attribute="enabled">false</arg>
+
+                </subarg>
+                <subarg><!-- 11 l -->
+                  <arg attribute="name">idprodserv</arg>
+                  <arg attribute="length">80</arg>
+                  <arg attribute="type">STRING</arg>
+                  <arg attribute="clean">false</arg>
+                  <arg attribute="enabled">false</arg>
+                </subarg>
+                <subarg><!-- 12 m -->
+                  <arg attribute="name">Campo</arg>
+                  <arg attribute="length">0</arg>
+                  <arg attribute="type">INTEGER</arg>
+                  <arg attribute="clean">false</arg>
+                  <arg attribute="enabled">true</arg>
+                </subarg>
+                <subarg><!-- 13 n -->
+                  <arg attribute="name">Campo2</arg>
+                  <arg attribute="length">0</arg>
+                  <arg attribute="type">INTEGER</arg>
+                  <arg attribute="clean">false</arg>
+                  <arg attribute="enabled">true</arg>
+                </subarg>
+                <subarg><!-- 14 o -->
+                  <arg attribute="name">Campo3</arg>
+                  <arg attribute="length">0</arg>
+                  <arg attribute="type">INTEGER</arg>
+                  <arg attribute="clean">false</arg>
+                  <arg attribute="enabled">true</arg>
+                </subarg>
+              </parameters>
+            </component>
+          </panel>
+        </tab>
+        <tab locate="Center">
+          <panel name="Lista Composicion" icon="/icons/ico_con_materiap.png" type="BorderLayout">
+            <component locate="Center">
+              <driver id="kardexsport">client.gui.components.TableFindData</driver>
+              <parameters>
+                <arg attribute="keySQL">MTSEL0466</arg>
+                <arg attribute="driverEvent" id="codigo">client.gui.components.EmakuSearchField</arg>
+                <arg attribute="rows">100</arg>
+                <arg attribute="colorBackground">255,203,138</arg>
+                <arg attribute="colorSelected">247,175,86</arg>
+                <arg attribute="protectSelected">true</arg>
+                <subarg><!-- 0 a -->
+                  <arg attribute="name">Composición</arg>
+                  <arg attribute="length">845</arg>
+                  <arg attribute="type">STRING</arg>
+                  <arg attribute="clean">false</arg>
+                  <arg attribute="enabled">true</arg>
+                  <arg attribute="queryCol">0</arg>
+                </subarg>
+              </parameters>
+            </component>
+          </panel>
+        </tab>
+      </panel>
+    </panel>    
+  </tab>
+</FORM>
