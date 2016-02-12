@@ -1,0 +1,799 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FORM>
+  <preferences>
+    <size width="1024" height="560" />
+    <name>Nuevo Creacion Combos MT Orange</name>
+    <icon>NEW</icon>
+    <iconificable />
+    <resizable />
+    <closable />
+    <maximizable />
+    <consecutive>MC</consecutive>
+    <notCleanExportValue>keyCentro</notCleanExportValue>
+    <notCleanExportValue>bodegasaliente</notCleanExportValue>
+    <notCleanExportValue>bodegaentrante</notCleanExportValue>
+  </preferences>
+  <!-- Ocultos -->
+  <component>
+    <driver id="hide">common.gui.components.GenericData</driver>
+    <parameters>
+      <!-- <arg attribute="keySQL">MTSEL0617</arg>
+      <arg attribute="driverEvent" id="nitcc">client.gui.components.EmakuSearchField</arg> -->
+      <arg attribute="mode">NEW</arg>
+      <subarg>
+        <arg attribute="format">TEXT</arg>
+        <arg attribute="size">0</arg>
+        <arg attribute="maxlength">0</arg>
+      </subarg>
+    </parameters>
+  </component>
+  <component>
+           <driver id="rf_documento">common.gui.components.GenericData</driver>
+           <parameters>
+                  <arg attribute="keySQL">SEL0183</arg>
+                   <arg attribute="driverEvent" id="ordenc">client.gui.components.TableDataFields</arg>
+                   <subarg>
+                           <arg attribute="label">CODE</arg>
+                           <arg attribute="format">TEXT</arg>
+                           <arg attribute="size">10</arg>
+                           <arg attribute="maxlength">10</arg>
+                           <arg attribute="clean">true</arg>
+                           <arg attribute="exportValue">rf_documento</arg>
+                   </subarg>
+           </parameters>
+   </component>
+   <component>
+    <driver id="centrocosto">common.gui.components.GenericData</driver>
+    <parameters>
+      <subarg>
+        <arg attribute="format">TEXT</arg>
+        <arg attribute="name">centro</arg>
+        <arg attribute="size">20</arg>
+        <arg attribute="maxlength">20</arg>
+        <arg attribute="nameField">centrocosto</arg>
+        <arg attribute="addAttribute">key</arg>
+        <arg attribute="nullValue">true</arg>
+        <arg attribute="exportValue">keyCentro</arg>
+        <arg attribute="sqlInit">LUSEL0111</arg>
+        <arg attribute="queryOnInit">true</arg>
+      </subarg>
+    </parameters>
+  </component>
+<!-- Fin ocultos -->
+  <panel locate="North" type="BorderLayout">
+    
+    <panel locate="West" type="BorderLayout">
+      <box locate="East" width="15" />
+      <box locate="West" width="1" />
+
+      <panel locate="Center" type="BorderLayout">
+        <panel locate="West" type="BorderLayout">
+        <panel locate="North" type="BorderLayout">
+          <panel locate="West" type="GridLayout" rows="3" cols="1">
+            <component locate="North">
+              <driver>common.gui.components.XMLLabel</driver>
+              <parameters>
+                <arg attribute="text">Fecha</arg>
+                <arg attribute="font">Dialog,0,14</arg>
+              </parameters>
+            </component>
+            <component locate="North">
+              <driver>common.gui.components.XMLLabel</driver>
+              <parameters>
+                <arg attribute="text">Numero</arg>
+                <arg attribute="font">Dialog,0,14</arg>
+              </parameters>
+            </component>
+            <component locate="North">
+              <driver>common.gui.components.XMLLabel</driver>
+              <parameters>
+                <arg attribute="text">Orden de Produccion</arg>
+                <arg attribute="font">Dialog,0,14</arg>
+              </parameters>
+            </component>
+          </panel>
+          <panel locate="Center" type="GridLayout" rows="3" cols="1">
+            <component locate="West">
+              <driver id="date">common.gui.components.XMLDateField</driver>
+              <parameters>
+                <arg attribute="exportValue">fechai</arg>
+                <arg attribute="label">DATE</arg>
+                <arg attribute="printable">true</arg>
+              </parameters>
+            </component>
+            <component locate="Center">
+              <driver id="number">client.gui.components.TableDataFields</driver>
+              <parameters>
+                <!-- <arg attribute="Panel">false</arg> -->
+                <subarg>
+                  <arg attribute="format">TEXT</arg>
+                  <arg attribute="size">8</arg>
+                  <arg attribute="maxlength">15</arg>
+                  <arg attribute="enabled">false</arg>
+                  <arg attribute="clean">false</arg>
+                  <arg attribute="font">Dialog,0,18</arg>
+                  <arg attribute="foreground">249,87,87</arg>
+                  <arg attribute="background">0,0,0</arg>
+                  <arg attribute="alignment">RIGHT</arg>
+                  <arg attribute="idDocument">MC</arg>
+                </subarg>
+              </parameters>
+            </component>
+            <component locate="Center">
+              <driver id="ordenc">client.gui.components.TableDataFields</driver>
+              <parameters>
+                <!-- <arg attribute="Panel">false</arg> -->
+                <subarg>
+                  <arg attribute="format">TEXT</arg>
+                  <arg attribute="size">8</arg>
+                  <arg attribute="maxlength">15</arg>
+                  <arg attribute="exportValue">numerocs</arg>
+                  <arg attribute="clean">true</arg>
+                  <arg attribute="font">Dialog,0,18</arg>
+                  <arg attribute="alignment">RIGHT</arg>
+                  <arg attribute="constantValue">CS</arg>
+                  <arg attribute="printable">true</arg>
+                  <arg attribute="sqlCode">SEL0183</arg> <!-- Consulta ndocumento de orden de producción -->
+                  <arg attribute="sqlCode">MTSEL0616</arg> <!-- Consulta estado de orden de producción -->
+                  <arg attribute="sqlCode">MTSEL0617</arg> <!-- Consulta que habilita o deshabilita boton guardar -->
+                </subarg>
+              </parameters>
+            </component>
+          </panel>
+        </panel>
+      </panel>
+      </panel>
+       <panel locate="South" type="BorderLayout">
+              <component locate="West">
+                <driver id="refcombo">client.gui.components.EmakuSearchField</driver>
+                <parameters>
+                  <arg attribute="label">Ref Combo:</arg>
+                  <arg attribute="size">10</arg>
+                  <arg attribute="maxlength">10</arg>
+                  <arg attribute="font">Dialog,0,12</arg>
+                  <arg attribute="nullValue">true</arg>
+                  <arg attribute="exportValue">refcombo</arg>
+                  <arg attribute="importValue">numerocs</arg>
+                  <arg attribute="format">TEXT</arg>
+                  <arg attribute="sqlCombo">MTSEL0517</arg>
+                  <arg attribute="blankArgs">false</arg>
+                  <arg attribute="keyDataSearch">searchRec</arg>
+                  <arg attribute="repeatData">1</arg>
+                  <arg attribute="noDataBeep">true</arg>
+                  <arg attribute="noDataMessage">No se encontro registros</arg>
+                  <arg attribute="selectedIndex">1</arg>
+                  <arg attribute="enabled">true</arg>
+                  <arg attribute="clean">true</arg>
+                  <arg attribute="sqlCode">MTSEL0519</arg> <!-- Consulta tabla productos terminados -->
+                  <arg attribute="sqlCode">MTSEL0518</arg> <!-- Consulta tabla composicion de combos -->
+                  <arg attribute="sqlCode">MTSEL0520</arg> <!-- Consulta descripcion referencia -->
+                  <arg attribute="sqlCode">MTSEL0521</arg> <!-- Consulta tabla sobrantes -->
+                </parameters>
+              </component>
+              <component locate="Center">
+                <driver id="descripcion">common.gui.components.GenericData</driver>
+                <parameters>
+                  <arg attribute="keySQL">MTSEL0520</arg>
+                  <arg attribute="driverEvent" id="refcombo">client.gui.components.EmakuSearchField</arg>
+                  <subarg>
+                    <arg attribute="format">TEXT</arg>
+                    <arg attribute="size">30</arg>
+                    <arg attribute="maxlength">60</arg>                  
+                    <arg attribute="clean">true</arg>
+                    <arg attribute="font">Dialog,0,12</arg>
+                    <arg attribute="printable">true</arg>
+                  </subarg>
+                </parameters>
+              </component>
+          </panel>
+    </panel>
+  </panel>
+  <panel locate="Center" type="BorderLayout">
+    <tab>
+    <component name="Productos Terminados" icon="/icons/ico_pagos.png">
+          <driver id="pterminados">client.gui.components.TableFindData</driver>
+          <parameters>
+              <arg attribute="Query">LUSEL0105</arg>
+              <arg attribute="tagdata">5</arg>
+              <arg attribute="rows">100</arg>
+              <arg attribute="reload">true</arg>
+              <arg attribute="colorBackground">198,226,255</arg>
+              <arg attribute="colorSelected">198,216,255</arg>
+              <arg attribute="totales">f,g,h,i</arg>
+              <!-- <arg attribute="formula">h=g*f</arg> -->
+              <arg attribute="keySQL">MTSEL0519</arg>
+              <arg attribute="returnNullValue">true</arg>
+              <arg attribute="driverEvent" id="refcombo">client.gui.components.EmakuSearchField</arg>
+              <subarg><!-- a 0 -->
+                  <arg attribute="name">CODE</arg>
+                  <arg attribute="length">115</arg>
+                  <arg attribute="type">DATASEARCH</arg>
+                  <arg attribute="sqlCombo">LUSEL0106</arg>
+                  <arg attribute="keyDataSearch">searchProd</arg>
+                  <arg attribute="recordsField">2</arg>
+                  <arg attribute="repeatData">3</arg>
+                  <arg attribute="noDataBeep">true</arg>
+                  <arg attribute="noDataMessage">No se encontro registros</arg>
+                  <arg attribute="selectedIndex">2</arg>
+                  <arg attribute="printable">true</arg>
+                  <arg attribute="enabled">true</arg>
+                  <arg attribute="clean">true</arg>
+                  <arg attribute="exportValue">codigos</arg>
+              </subarg>
+                <subarg><!--1 b -->
+                  <arg attribute="name">Referencia</arg>
+                  <arg attribute="length">105</arg>
+                  <arg attribute="type">STRING</arg>
+                  <arg attribute="enabled">false</arg>
+                  <arg attribute="queryCol">0</arg>
+                  <arg attribute="printable">true</arg>
+                </subarg>
+                <subarg><!--2 c -->
+                  <arg attribute="name">DESCRIPCION</arg>
+                  <arg attribute="length">200</arg>
+                  <arg attribute="type">STRING</arg>
+                  <arg attribute="enabled">false</arg>
+                  <arg attribute="queryCol">1</arg>
+                  <arg attribute="printable">true</arg>
+                </subarg>
+                <subarg><!--3 d -->
+                  <arg attribute="name">Color</arg>
+                  <arg attribute="length">60</arg>
+                  <arg attribute="type">STRING</arg>
+                  <arg attribute="enabled">false</arg>
+                  <arg attribute="queryCol">2</arg>
+                  <arg attribute="printable">true</arg>
+                </subarg>
+                <subarg><!--4 e -->
+                  <arg attribute="name">Talla</arg>
+                  <arg attribute="length">40</arg>
+                  <arg attribute="type">STRING</arg>
+                  <arg attribute="enabled">false</arg>
+                  <arg attribute="queryCol">3</arg>
+                  <arg attribute="printable">true</arg>
+                </subarg>
+              <subarg><!-- 5 f -->
+                  <arg attribute="name">Cantidad</arg>
+                  <arg attribute="length">60</arg>
+                  <arg attribute="type">INTEGER</arg>
+                  <arg attribute="enabled">true</arg>
+                  <arg attribute="nameField">cantidad</arg>
+                  <arg attribute="printable">true</arg>
+                  <arg attribute="returnCol">1</arg>
+                  <arg attribute="defaultValue">1</arg>
+              </subarg>                          
+              <subarg><!-- 6 g -->
+                  <arg attribute="name">C. Unitario</arg>
+                  <arg attribute="length">110</arg>
+                  <arg attribute="type">DECIMAL</arg>
+                  <arg attribute="roundDecimal">2</arg>
+                  <arg attribute="enabled">false</arg>
+                  <arg attribute="nameField">vunitario</arg>
+                  <arg attribute="printable">true</arg>
+                  <arg attribute="returnCol">4</arg>
+                  <arg attribute="queryCol">4</arg>
+              </subarg>
+              <subarg><!-- 7 h -->
+                  <arg attribute="name">T. Costo</arg>
+                  <arg attribute="length">110</arg>
+                  <arg attribute="type">DECIMAL</arg>
+                  <arg attribute="roundDecimal">2</arg>
+                  <arg attribute="enabled">false</arg>
+                  <arg attribute="returnCol">2</arg>
+                  <arg attribute="printable">true</arg>
+              </subarg>
+              <subarg><!-- 8 i -->
+                  <arg attribute="name">ID</arg>
+                  <arg attribute="length">100</arg>
+                  <arg attribute="type">STRING</arg>
+                  <arg attribute="enabled">false</arg>
+                  <arg attribute="returnCol">0</arg>
+                  <arg attribute="queryCol">6</arg>
+                  <arg attribute="exportValue">id_prod_serv</arg>
+                  <arg attribute="nameField">idProducto</arg>
+                  <arg attribute="addAttribute">key</arg>
+              </subarg>
+              <subarg><!-- 9 j -->
+                  <arg attribute="name">idbodega</arg>
+                  <arg attribute="length">100</arg>
+                  <arg attribute="type">STRING</arg>
+                  <arg attribute="enabled">false</arg>
+                  <arg attribute="returnCol">3</arg>
+                  <arg attribute="nameField">bodegaSaliente</arg> 
+                  <arg attribute="addAttribute">key</arg>
+              </subarg>
+              <subarg><!-- 10 k -->
+                  <arg attribute="name">descuento</arg>
+                  <arg attribute="length">0</arg>
+                  <arg attribute="type">DECIMAL</arg>
+                  <arg attribute="enabled">false</arg>
+                  <arg attribute="returnCol">5</arg>
+                  </subarg>
+          </parameters>
+      </component>
+      <component name="Composicion Combos" icon="/icons/ico_mercancia_sobrante_16x16.png">
+          <driver id="ccombos">client.gui.components.TableFindData</driver>
+          <parameters>
+              <arg attribute="Query">LUSEL0105</arg>
+              <arg attribute="tagdata">5</arg>
+              <arg attribute="rows">100</arg>
+              <arg attribute="reload">true</arg>
+              <arg attribute="colorBackground">198,226,255</arg>
+              <arg attribute="colorSelected">198,216,255</arg>
+              <arg attribute="totales">f,g,h,i</arg>
+              <arg attribute="keySQL">MTSEL0518</arg>
+              <arg attribute="returnNullValue">true</arg>
+              <arg attribute="driverEvent" id="refcombo">client.gui.components.EmakuSearchField</arg>
+              <subarg><!-- a 0 -->
+                  <arg attribute="name">CODE</arg>
+                  <arg attribute="length">115</arg>
+                  <arg attribute="type">DATASEARCH</arg>
+                  <arg attribute="sqlCombo">LUSEL0106</arg>
+                  <arg attribute="keyDataSearch">searchProd</arg>
+                  <arg attribute="recordsField">2</arg>
+                  <arg attribute="repeatData">3</arg>
+                  <arg attribute="noDataBeep">true</arg>
+                  <arg attribute="noDataMessage">No se encontro registros</arg>
+                  <arg attribute="selectedIndex">2</arg>
+                  <arg attribute="printable">true</arg>
+                  <arg attribute="enabled">true</arg>
+                  <arg attribute="clean">true</arg>
+                  <arg attribute="exportValue">codigos</arg>
+              </subarg>
+                <subarg><!--1 b -->
+                  <arg attribute="name">Referencia</arg>
+                  <arg attribute="length">105</arg>
+                  <arg attribute="type">STRING</arg>
+                  <arg attribute="enabled">false</arg>
+                  <arg attribute="queryCol">0</arg>
+                  <arg attribute="printable">true</arg>
+                </subarg>
+                <subarg><!--2 c -->
+                  <arg attribute="name">DESCRIPCION</arg>
+                  <arg attribute="length">200</arg>
+                  <arg attribute="type">STRING</arg>
+                  <arg attribute="enabled">false</arg>
+                  <arg attribute="queryCol">1</arg>
+                  <arg attribute="printable">true</arg>
+                </subarg>
+                <subarg><!--3 d -->
+                  <arg attribute="name">Color</arg>
+                  <arg attribute="length">60</arg>
+                  <arg attribute="type">STRING</arg>
+                  <arg attribute="enabled">false</arg>
+                  <arg attribute="queryCol">2</arg>
+                  <arg attribute="printable">true</arg>
+                </subarg>
+                <subarg><!--4 e -->
+                  <arg attribute="name">Talla</arg>
+                  <arg attribute="length">40</arg>
+                  <arg attribute="type">STRING</arg>
+                  <arg attribute="enabled">false</arg>
+                  <arg attribute="queryCol">3</arg>
+                  <arg attribute="printable">true</arg>
+                </subarg>
+              <subarg><!-- 5 f -->
+                  <arg attribute="name">Cantidad</arg>
+                  <arg attribute="length">60</arg>
+                  <arg attribute="type">INTEGER</arg>
+                  <arg attribute="enabled">true</arg>
+                  <arg attribute="nameField">cantidad</arg>
+                  <arg attribute="printable">true</arg>
+                  <arg attribute="returnCol">1</arg>
+                  <arg attribute="defaultValue">1</arg>
+              </subarg>                          
+              <subarg><!-- 6 g -->
+                  <arg attribute="name">C. Unitario</arg>
+                  <arg attribute="length">110</arg>
+                  <arg attribute="type">DECIMAL</arg>
+                  <arg attribute="roundDecimal">2</arg>
+                  <arg attribute="enabled">false</arg>
+                  <arg attribute="printable">true</arg>
+                  <arg attribute="returnCol">4</arg>
+                  <arg attribute="queryCol">4</arg>
+                  <arg attribute="nameField">pcosto</arg>
+              </subarg>
+              <subarg><!-- 7 h -->
+                  <arg attribute="name">T. Costo</arg>
+                  <arg attribute="length">110</arg>
+                  <arg attribute="type">DECIMAL</arg>
+                  <arg attribute="roundDecimal">2</arg>
+                  <arg attribute="enabled">false</arg>
+                  <arg attribute="returnCol">2</arg>                  
+                  <arg attribute="printable">true</arg>
+              </subarg>
+              <subarg><!-- 9 j -->
+                  <arg attribute="name">ID</arg>
+                  <arg attribute="length">100</arg>
+                  <arg attribute="type">STRING</arg>
+                  <arg attribute="enabled">false</arg>
+                  <arg attribute="returnCol">0</arg>
+                  <arg attribute="queryCol">6</arg>
+                  <arg attribute="exportValue">id_prod_serv</arg>
+                  <arg attribute="nameField">idProducto</arg>
+                  <arg attribute="addAttribute">key</arg>
+              </subarg>
+              <subarg><!-- 9 j -->
+                  <arg attribute="name">idbodega</arg>
+                  <arg attribute="length">100</arg>
+                  <arg attribute="type">STRING</arg>
+                  <arg attribute="enabled">false</arg>
+                  <arg attribute="returnCol">3</arg>
+                  <arg attribute="nameField">bodegaEntrante</arg> 
+                  <arg attribute="addAttribute">key</arg>
+              </subarg>
+              <subarg><!-- 9 j -->
+                  <arg attribute="name">descuento</arg>
+                  <arg attribute="length">0</arg>
+                  <arg attribute="type">DECIMAL</arg>
+                  <arg attribute="enabled">false</arg>
+                  <arg attribute="returnCol">5</arg>
+                  </subarg>
+          </parameters>
+      </component>
+  <component name="Sobrantes" icon="PAGO">
+          <driver id="csobrantes">client.gui.components.TableFindData</driver>
+          <parameters>
+              <arg attribute="Query">LUSEL0105</arg>
+              <arg attribute="tagdata">5</arg>
+              <arg attribute="rows">100</arg>
+              <arg attribute="reload">true</arg>
+              <arg attribute="colorBackground">142,229,238</arg>
+              <arg attribute="colorSelected">142,229,238</arg>
+              <arg attribute="totales">f,g,h,i</arg>
+              <!-- <arg attribute="formula">h=g*f</arg> -->
+              <arg attribute="keySQL">MTSEL0521</arg>          
+              <arg attribute="returnNullValue">true</arg>
+              <arg attribute="blankPackage">true</arg>
+              <arg attribute="driverEvent" id="refcombo">client.gui.components.EmakuSearchField</arg>
+              <subarg><!-- a 0 -->
+                  <arg attribute="name">CODE</arg>
+                  <arg attribute="length">115</arg>
+                  <arg attribute="type">DATASEARCH</arg>
+                  <arg attribute="sqlCombo">LUSEL0106</arg>
+                  <arg attribute="keyDataSearch">searchProd</arg>
+                  <arg attribute="recordsField">2</arg>
+                  <arg attribute="repeatData">3</arg>
+                  <arg attribute="noDataBeep">true</arg>
+                  <arg attribute="noDataMessage">No se encontro registros</arg>
+                  <arg attribute="selectedIndex">2</arg>
+                  <arg attribute="printable">true</arg>
+                  <arg attribute="enabled">true</arg>
+                  <arg attribute="clean">true</arg>
+                  <arg attribute="exportValue">codigos</arg>
+              </subarg>
+                <subarg><!--1 b -->
+                  <arg attribute="name">Referencia</arg>
+                  <arg attribute="length">105</arg>
+                  <arg attribute="type">STRING</arg>
+                  <arg attribute="enabled">false</arg>
+                  <arg attribute="queryCol">0</arg>
+                  <arg attribute="printable">true</arg>
+                </subarg>
+                <subarg><!--2 c -->
+                  <arg attribute="name">DESCRIPCION</arg>
+                  <arg attribute="length">200</arg>
+                  <arg attribute="type">STRING</arg>
+                  <arg attribute="enabled">false</arg>
+                  <arg attribute="queryCol">1</arg>
+                  <arg attribute="printable">true</arg>
+                </subarg>
+                <subarg><!--3 d -->
+                  <arg attribute="name">Color</arg>
+                  <arg attribute="length">60</arg>
+                  <arg attribute="type">STRING</arg>
+                  <arg attribute="enabled">false</arg>
+                  <arg attribute="queryCol">2</arg>
+                  <arg attribute="printable">true</arg>
+                </subarg>
+                <subarg><!--4 e -->
+                  <arg attribute="name">Talla</arg>
+                  <arg attribute="length">40</arg>
+                  <arg attribute="type">STRING</arg>
+                  <arg attribute="enabled">false</arg>
+                  <arg attribute="queryCol">3</arg>
+                  <arg attribute="printable">true</arg>
+                </subarg>
+              <subarg><!-- 5 f -->
+                  <arg attribute="name">Cantidad</arg>
+                  <arg attribute="length">60</arg>
+                  <arg attribute="type">INTEGER</arg>
+                  <arg attribute="enabled">true</arg>
+                  <arg attribute="nameField">cantidad</arg>
+                  <arg attribute="printable">true</arg>
+                  <arg attribute="returnCol">1</arg>
+                  <arg attribute="defaultValue">1</arg>
+              </subarg>                          
+              <subarg><!-- 6 g -->
+                  <arg attribute="name">C. Unitario</arg>
+                  <arg attribute="length">110</arg>
+                  <arg attribute="type">DECIMAL</arg>
+                  <arg attribute="roundDecimal">2</arg>
+                  <arg attribute="enabled">false</arg>
+                  <arg attribute="nameField">vunitario</arg>
+                  <arg attribute="printable">true</arg>
+                  <arg attribute="returnCol">4</arg>
+                  <arg attribute="queryCol">4</arg>
+              </subarg>
+              <subarg><!-- 7 h -->
+                  <arg attribute="name">T. Costo</arg>
+                  <arg attribute="length">110</arg>
+                  <arg attribute="type">DECIMAL</arg>
+                  <arg attribute="roundDecimal">2</arg>
+                  <arg attribute="enabled">false</arg>
+                  <arg attribute="returnCol">2</arg>
+                  <arg attribute="printable">true</arg>
+              </subarg>
+              <subarg><!-- 8 i -->
+                  <arg attribute="name">ID</arg>
+                  <arg attribute="length">100</arg>
+                  <arg attribute="type">STRING</arg>
+                  <arg attribute="enabled">false</arg>
+                  <arg attribute="returnCol">0</arg>
+                  <arg attribute="queryCol">6</arg>
+                  <arg attribute="exportValue">id_prod_serv</arg>
+                  <arg attribute="nameField">idProducto</arg>
+                  <arg attribute="addAttribute">key</arg>
+              </subarg>
+              <subarg><!-- 9 j -->
+                  <arg attribute="name">idbodega</arg>
+                  <arg attribute="length">100</arg>
+                  <arg attribute="type">STRING</arg>
+                  <arg attribute="enabled">false</arg>
+                  <arg attribute="returnCol">3</arg>            
+                  <arg attribute="nameField">bodegaEntrante</arg> 
+                  <arg attribute="addAttribute">key</arg>
+              </subarg>
+              <subarg><!-- 10 k -->
+                  <arg attribute="name">descuento</arg>
+                  <arg attribute="length">0</arg>
+                  <arg attribute="type">DECIMAL</arg>
+                  <arg attribute="enabled">false</arg>
+                  <arg attribute="returnCol">5</arg>
+                  </subarg>
+          </parameters>
+      </component>
+  </tab>
+  </panel>
+  <panel locate="South" type="BorderLayout">
+    <panel locate="North" type="FlowLayout" />
+    <panel locate="West" type="FlowLayout" />
+    <panel locate="South" type="FlowLayout" />
+    <panel locate="Center" type="BorderLayout">
+      <panel locate="South" type="BorderLayout">
+        <panel locate="West" type="BorderLayout">
+          <component locate="North">
+            <driver>common.gui.components.XMLLabel</driver>
+            <parameters>
+              <arg attribute="text">OBSERVACIONES</arg>
+              <arg attribute="alignment">LEFT</arg>
+            </parameters>
+          </component>
+          <component locate="Center">
+            <driver id="observaciones">common.gui.components.XMLTextArea</driver>
+            <parameters>
+              <arg attribute="rows">70</arg>
+              <arg attribute="cols">450</arg>
+            </parameters>
+          </component>
+        </panel>
+        <panel locate="South" type="BorderLayout">
+            <component locate="West">
+                    <driver id="estado">common.gui.components.XMLLabel</driver>
+                    <parameters>
+                        <arg attribute="keySQL">MTSEL0616</arg>
+                        <arg attribute="driverEvent" id="ordenc">client.gui.components.TableDataFields</arg>
+                        <arg attribute="font">Dialog,0,18</arg>
+                        <arg attribute="text">:</arg>
+                        <arg attribute="alignment">LEFT</arg>
+                    </parameters>
+                </component>            
+            <component locate="Center">
+          <driver>common.gui.components.ButtonsPanel</driver>
+          <parameters>
+            <arg>PRINT</arg>
+            <arg>NEW</arg>
+            <arg>EXIT</arg>
+          </parameters>
+          <events>
+            <object>
+                <name>PRINT</name>
+                <action>
+                <type>transaction</type>
+                    <component>
+                      <driver>this</driver>
+                      <method>validMultiPackage</method>
+                      <parameters>
+                        <driver attribute="driver" id="date">common.gui.components.XMLDateField</driver>
+                        <arg attribute="errorMessage">Error, Falta ingresar la fecha del documento</arg>
+                      </parameters>
+                    </component>                    
+                    <component>
+                      <driver>this</driver>
+                      <method>validMultiPackage</method>
+                      <parameters>
+                        <driver attribute="driver" id="ordenc">client.gui.components.TableDataFields</driver>
+                        <arg attribute="errorMessage">Error, Digite el número de orden de producción</arg>
+                      </parameters>
+                    </component>                    
+                    <component>
+                      <driver>this</driver>
+                      <method>validMultiPackage</method>
+                      <parameters>
+                        <driver attribute="driver" id="refcombo">client.gui.components.EmakuSearchField</driver>
+                        <arg attribute="errorMessage">Error, Seleccione la referencia del combo por favor</arg>
+                      </parameters>
+                    </component>                    
+                    <!-- <component>
+                      <driver>this</driver>
+                      <method>validMultiPackage</method>
+                      <parameters>
+                        <driver attribute="driver" id="ccombos">client.gui.components.TableFindData</driver>
+                        <arg attribute="errorMessage">Error, No se pudieron componer combos</arg>
+                      </parameters>
+                    </component> -->
+                    -
+                    <component>
+                        <driver id="date">common.gui.components.XMLDateField</driver>
+                        <method>getPackage</method>
+                    </component>
+                    0
+                    <component>
+                        <driver>this</driver>
+                        <method>getPackage</method>
+                        <parameters>
+                            <arg attribute="nullField">true</arg>
+                            <subarg>
+                                <arg attribute="importValue" setAttributeName="attribute" setAttributeValue="finalKey">rf_documento</arg>
+                            </subarg>
+                        </parameters>
+                    </component>                            
+                    1
+                    <component>
+                        <driver id="observaciones">common.gui.components.XMLTextArea</driver>
+                        <method>getPackage</method>
+                    </component>
+                    2
+                    <component>
+                        <driver id="centrocosto">common.gui.components.GenericData</driver>
+                        <method>getPackage</method>
+                    </component>
+                    3                            
+                    <component> <!-- Datos prod -->
+                      <driver id="ccombos">client.gui.components.TableFindData</driver>
+                      <method>getPackage</method>
+                    </component>
+                    4
+                    <component>
+                      <driver id="pterminados">client.gui.components.TableFindData</driver>
+                      <method>getPackage</method>
+                    </component>
+                    5
+                    <component>
+                      <driver id="ccombos">client.gui.components.TableFindData</driver>
+                      <method>getPackage</method>
+                    </component>
+                    6
+                    <component>
+                        <driver id="csobrantes">client.gui.components.TableFindData</driver>
+                      <method>getPackage</method>
+                    </component>     
+                    7
+                    <component> <!--DBLINK-->
+                        <driver id="ccombos">client.gui.components.TableFindData</driver>
+                        <method>getBlankPackage</method>
+                    </component>
+                    <component><!-- Recarga numeracion remota -->
+                        <driver>this</driver>
+                        <method>sendReloadPackage</method>
+                        <parameters>
+                          <subarg>
+                            <arg attribute="host">localhost</arg>
+                            <arg attribute="port">9117</arg>
+                            <arg attribute="database">bercelim</arg>
+                            <arg attribute="tipoDoc">MC</arg>
+                            <arg attribute="user">emaku</arg>
+                            <arg attribute="password">perla2010</arg>
+                          </subarg>
+                        </parameters>
+                    </component>                                                
+                  <component>
+                    <driver>common.gui.components.ButtonsPanel</driver>
+                    <method>setEnabled</method>
+                    <parameters>
+                        <arg attribute="button">PRINT</arg>
+                        <arg attribute="state">false</arg>
+                    </parameters>
+                </component>
+              </action>
+                <action>
+                  <type>printer</type>
+                  <printerTemplate>/graphics/TNIngresoProductos.xml</printerTemplate>
+                  <component>
+                    <driver id="ordenc">common.gui.components.GenericData</driver>
+                    <method>getPrintPackage</method>
+                  </component>                          
+                  <component>
+                      <driver id="cantidades">client.gui.components.TableDataFields</driver>
+                      <method>getPrintPackage</method>
+                  </component>
+                  <component>
+                    <driver id="date">common.gui.components.XMLDateField</driver>
+                    <method>getPrintPackage</method>
+                  </component>
+                  <component>
+                    <driver id="productose">client.gui.components.TableFindData</driver>
+                    <method>getPrintPackage</method>
+                  </component>
+                  <component>
+                    <driver id="observaciones">common.gui.components.XMLTextArea</driver>
+                    <method>getPrintPackage</method>
+                  </component>                  
+                </action>
+            </object>
+            <object>
+              <name>NEW</name>
+              <component>
+                  <driver>this</driver>
+                  <method>cleanExternalValues</method>
+              </component>        
+              
+              <component>
+                  <driver id="rf_documento">common.gui.components.GenericData</driver>
+                      <method>clean</method>
+              </component>
+                                          
+              <component>
+                      <driver id="date">common.gui.components.XMLDateField</driver>
+                      <method>clean</method>
+              </component>
+                            
+              <component>
+                  <driver id="observaciones">common.gui.components.XMLTextArea</driver>
+                      <method>clean</method>
+              </component>                        
+              
+              <component>
+                  <driver id="ordenc">client.gui.components.TableDataFields</driver>
+                      <method>clean</method>
+              </component>                        
+              <component>
+                  <driver id="csobrantes">client.gui.components.TableFindData</driver>
+                      <method>clean</method>
+              </component>                        
+              <component>
+                  <driver id="ccombos">client.gui.components.TableFindData</driver>
+                      <method>clean</method>
+              </component>                        
+              <component>
+                  <driver id="refcombo">client.gui.components.EmakuSearchField</driver>
+                  <method>clean</method>
+              </component>                        
+              <component>
+                  <driver id="descripcion">common.gui.components.GenericData</driver>
+                  <method>clean</method>
+              </component>      
+              <component>
+                  <driver id="estado">common.gui.components.XMLLabel</driver>
+                  <method>clean</method>
+              </component>                                  
+              <component>
+                  <driver id="pterminados">client.gui.components.TableFindData</driver>
+                      <method>clean</method>
+              </component>                                      
+              <component>
+                <driver>common.gui.components.ButtonsPanel</driver>
+                <method>setEnabled</method>
+                <parameters>
+                  <arg attribute="button">PRINT</arg>
+                  <arg attribute="state">true</arg>
+                </parameters>
+              </component>
+            </object>
+          </events>
+        </component>
+      </panel>
+      </panel>
+    </panel>
+  </panel>
+</FORM>

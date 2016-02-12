@@ -1,0 +1,114 @@
+<container>
+  <subarg>
+    <arg attribute="idDocument">MC</arg>
+    <arg attribute="consecutive"/>
+    <arg attribute="actionDocument">createDocument</arg>
+    <arg attribute="cash"/>
+    <arg attribute="dblinkID">138</arg>
+  </subarg>
+  0
+  <arg>UPD0024</arg>
+  1
+  <!-- Obs -->
+  <arg>INS0037</arg>
+  2
+  <arg attribute="addKey"/><!-- centrocosto -->
+  3
+  <LNData> <!-- Datos Prod -->
+    <driver>LNSelectedField</driver>
+    <method>getSubpackage</method>
+    <parameters>
+      <arg attribute="sql">MTINS0116</arg>
+      <arg attribute="fields">0,1,2</arg>
+      <arg attribute="discartKey">idTercero</arg>
+      <arg attribute="discartKey">centrocosto</arg>
+      <arg attribute="discartKey">scentrocosto</arg>
+    </parameters>
+  </LNData>  
+  4
+  <subarg>
+    <LNData>
+      <driver>LNInventarios</driver>
+      <method>movimientos</method>
+      <parameters>
+        <arg attribute="tipoMovimiento">salida</arg>
+      </parameters>
+    </LNData>
+    <LNData>
+      <driver>LNContabilidad</driver>
+      <method>columnData</method>
+      <parameters>
+        <arg attribute="debuging">true</arg>
+        <arg attribute="Base">0</arg>
+        <arg attribute="CodeAPS">18</arg>
+        <arg attribute="naturaleza">C</arg>
+        <arg attribute="Concepto">Confecciones</arg>
+        <arg attribute="centrocosto">getName</arg>
+        <arg attribute="scentrocosto">noData</arg>
+        <arg attribute="vinculo">noData</arg>
+        <subarg>
+          <arg attribute="accountCol">IdProdServ,0</arg>
+          <arg attribute="accountCol">14352401,2</arg><!-- Cuenta correcta es: 143005 -->
+        </subarg>
+      </parameters>
+    </LNData>
+  </subarg>
+  5
+  <subarg>
+    <LNData>
+      <driver>LNInventarios</driver>
+      <method>movimientos</method>
+      <parameters>
+        <arg attribute="tipoMovimiento">entrada</arg>
+      </parameters>
+    </LNData>
+    <LNData>
+      <driver>LNContabilidad</driver>
+      <method>columnData</method>
+      <parameters>
+        <arg attribute="debuging">true</arg>
+        <arg attribute="Base">0</arg>
+        <arg attribute="CodeAPS">18</arg>
+        <arg attribute="naturaleza">D</arg>
+        <arg attribute="Concepto">Confecciones</arg>
+        <arg attribute="centrocosto">getName</arg>
+        <arg attribute="scentrocosto">noData</arg>
+        <arg attribute="vinculo">noData</arg>
+        <subarg>
+          <arg attribute="accountCol">IdProdServ,0</arg>
+          <arg attribute="accountCol">14352401,2</arg><!-- Cuenta correcta es: 143005 -->
+        </subarg>
+      </parameters>
+    </LNData>
+  </subarg>
+  6
+  <subarg>
+    <LNData>
+      <driver>LNInventarios</driver>
+      <method>movimientos</method>
+      <parameters>
+        <arg attribute="tipoMovimiento">entrada</arg>
+      </parameters>
+    </LNData>
+    <LNData>
+      <driver>LNContabilidad</driver>
+      <method>columnData</method>
+      <parameters>
+        <arg attribute="debuging">true</arg>
+        <arg attribute="Base">0</arg>
+        <arg attribute="CodeAPS">18</arg>
+        <arg attribute="naturaleza">D</arg>
+        <arg attribute="Concepto">Confecciones</arg>
+        <arg attribute="centrocosto">getName</arg>
+        <arg attribute="scentrocosto">noData</arg>
+        <arg attribute="vinculo">noData</arg>
+        <subarg>
+          <arg attribute="accountCol">IdProdServ,0</arg>
+          <arg attribute="accountCol">14352401,2</arg>
+        </subarg>
+      </parameters>
+    </LNData>
+  </subarg>
+  7
+  <arg>DBLINK005</arg>
+</container>
